@@ -1,0 +1,100 @@
+/* ── Yoinky brand override for Payload admin ── */
+
+/* Import DM Sans from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+/* Override base grays: shift toward #0C0C0C brand bg */
+:root,
+html[data-theme='dark'] {
+  --color-base-1000: rgb(0, 0, 0);
+  --color-base-950:  rgb(4, 4, 8);
+  --color-base-900:  rgb(12, 12, 16);   /* = #0C0C10 ≈ brand bg */
+  --color-base-850:  rgb(20, 20, 26);
+  --color-base-800:  rgb(30, 30, 38);
+  --color-base-750:  rgb(42, 42, 52);
+  --color-base-700:  rgb(56, 56, 68);
+  --color-base-650:  rgb(73, 73, 88);
+  --color-base-600:  rgb(92, 92, 110);
+  --color-base-550:  rgb(115, 115, 135);
+  --color-base-500:  rgb(140, 140, 160);
+
+  /* Replace "success" (= primary accent) with brand pink */
+  --color-success-50:  rgb(255, 238, 248);
+  --color-success-100: rgb(255, 218, 240);
+  --color-success-150: rgb(255, 197, 230);
+  --color-success-200: rgb(255, 175, 220);
+  --color-success-250: rgb(255, 152, 208);
+  --color-success-300: rgb(254, 128, 196);
+  --color-success-350: rgb(252, 105, 183);
+  --color-success-400: rgb(250, 83, 174);
+  --color-success-450: rgb(248, 72, 166);
+  --color-success-500: rgb(248, 91, 169);   /* = #F85BA9 brand pink */
+  --color-success-550: rgb(228, 65, 148);
+  --color-success-600: rgb(205, 45, 128);
+  --color-success-650: rgb(178, 30, 107);
+  --color-success-700: rgb(150, 18, 88);
+  --color-success-750: rgb(120, 12, 68);
+  --color-success-800: rgb(92, 10, 52);
+  --color-success-850: rgb(68, 8, 38);
+  --color-success-900: rgb(46, 6, 26);
+  --color-success-950: rgb(28, 4, 16);
+
+  /* Soften border color */
+  --theme-border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ── Font: DM Sans everywhere ── */
+html, body, * {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  letter-spacing: -0.01em;
+}
+
+/* ── Inputs: more refined look ── */
+.field-type input:not([type='checkbox']):not([type='radio']),
+.field-type textarea,
+.field-type select {
+  border-radius: 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.field-type input:not([type='checkbox']):not([type='radio']):focus,
+.field-type textarea:focus {
+  border-color: rgba(248, 91, 169, 0.5) !important;
+  box-shadow: 0 0 0 3px rgba(248, 91, 169, 0.1) !important;
+  outline: none !important;
+}
+
+/* ── Buttons: brand pink primary ── */
+.btn--style-primary {
+  background-color: rgb(248, 91, 169) !important;
+  color: #fff !important;
+  border-color: rgb(248, 91, 169) !important;
+  border-radius: 100px !important;
+  font-weight: 500 !important;
+}
+
+.btn--style-primary:hover:not(:disabled) {
+  background-color: rgb(225, 60, 145) !important;
+  border-color: rgb(225, 60, 145) !important;
+}
+
+.btn--style-primary:disabled {
+  background-color: rgba(248, 91, 169, 0.45) !important;
+  border-color: transparent !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* ── Nav: slightly darker than bg ── */
+.nav {
+  border-right: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+/* ── Login / create-first-user card ── */
+.template-minimal__wrap {
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 20px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(20px) !important;
+}

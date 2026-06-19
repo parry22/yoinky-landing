@@ -289,7 +289,6 @@ function PrivacyVisual() {
   useEffect(() => {
     let t1: ReturnType<typeof setTimeout>;
     let t2: ReturnType<typeof setTimeout>;
-    let t3: ReturnType<typeof setTimeout>;
     let loopTimer: ReturnType<typeof setTimeout>;
     let started = false;
 
@@ -317,7 +316,6 @@ function PrivacyVisual() {
       observer.disconnect();
       clearTimeout(t1);
       clearTimeout(t2);
-      clearTimeout(t3);
       clearTimeout(loopTimer);
     };
   }, []);

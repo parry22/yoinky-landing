@@ -58,8 +58,36 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const post = await getPost(slug);
   if (!post) notFound();
 
+  const SITE_URL = process.env.NEXT_PUBLIC_SERVER_URL || "https://meetyoinky.com";
+  const meta = post.meta as { title?: string; description?: string; image?: { url?: string } } | undefined;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: meta?.title ?? post.title,
+    description: meta?.description ?? (post.excerpt as string | undefined),
+    image: meta?.image?.url ?? (post.image as string | undefined),
+    author: {
+      "@type": "Person",
+      name: post.author as string | undefined,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Yoinky",
+      url: SITE_URL,
+    },
+    datePublished: post.publishedAt ?? undefined,
+    dateModified: post.updatedAt,
+    url: `${SITE_URL}/blog/${post.slug}`,
+    mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+  };
+
   return (
     <div style={{ backgroundColor: "white", minHeight: "100vh" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Nav light />
 
       <main style={{ maxWidth: 720, margin: "0 auto", padding: "clamp(56px,9vw,88px) clamp(24px,6vw,40px) clamp(64px,10vw,96px)" }}>

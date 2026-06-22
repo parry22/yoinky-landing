@@ -2,6 +2,7 @@ import { buildConfig } from 'payload'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { seoPlugin } from '@payloadcms/plugin-seo'
+import { redirectsPlugin } from '@payloadcms/plugin-redirects'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -63,6 +64,14 @@ export default buildConfig({
     },
   ],
   plugins: [
+    redirectsPlugin({
+      collections: ['posts'],
+      redirectTypes: ['301', '302'],
+      overrides: {
+        access: { read: () => true },
+        admin: { group: 'SEO' },
+      },
+    }),
     seoPlugin({
       collections: ['posts'],
       uploadsCollection: 'media',

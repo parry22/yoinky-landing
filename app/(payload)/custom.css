@@ -92,9 +92,14 @@ html, body, * {
 }
 
 /* ── Login / create-first-user card ── */
+.template-minimal {
+  padding: 24px !important;
+}
+
 .template-minimal__wrap {
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-radius: 20px !important;
   background: rgba(255, 255, 255, 0.03) !important;
   backdrop-filter: blur(20px) !important;
+  padding: 40px 36px !important;
 }

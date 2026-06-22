@@ -1,5 +1,6 @@
 import { NotFoundPage } from '@payloadcms/next/views'
 import config from '@payload-config'
+import { importMap } from '../importMap.js'
 
 type Args = {
   params: Promise<{ segments: string[] }>
@@ -7,5 +8,5 @@ type Args = {
 }
 
 export default function NotFound({ params, searchParams }: Args) {
-  return NotFoundPage({ config, params, searchParams })
+  return NotFoundPage({ config, importMap, params, searchParams })
 }

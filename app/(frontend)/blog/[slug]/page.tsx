@@ -31,9 +31,25 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = await getPost(slug);
   if (!post) return {};
+
+  const meta = post.meta as { title?: string; description?: string; image?: { url?: string } } | undefined;
+
   return {
-    title: `${post.title} | Yoinky Blog`,
-    description: post.excerpt ?? undefined,
+    title: meta?.title ?? `${post.title} | Yoinky Blog`,
+    description: meta?.description ?? (post.excerpt as string | undefined),
+    openGraph: {
+      title: meta?.title ?? post.title,
+      description: meta?.description ?? (post.excerpt as string | undefined),
+      images: meta?.image?.url ? [{ url: meta.image.url }] : undefined,
+      type: "article",
+      publishedTime: post.publishedAt ?? undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta?.title ?? post.title,
+      description: meta?.description ?? (post.excerpt as string | undefined),
+      images: meta?.image?.url ? [meta.image.url] : undefined,
+    },
   };
 }
 

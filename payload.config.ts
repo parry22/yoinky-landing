@@ -1,19 +1,21 @@
 import { buildConfig } from 'payload'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { seoPlugin } from '@payloadcms/plugin-seo'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+const SITE_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3001'
+
 export default buildConfig({
   admin: {
     user: 'users',
     theme: 'dark',
     livePreview: {
-      url: ({ data }) =>
-        `${process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3001'}/blog/${data.slug}`,
+      url: ({ data }) => `${SITE_URL}/blog/${data.slug}`,
       collections: ['posts'],
       breakpoints: [
         { label: 'Mobile', name: 'mobile', width: 375, height: 812 },
@@ -27,25 +29,26 @@ export default buildConfig({
     {
       slug: 'users',
       auth: true,
-      admin: {
-        useAsTitle: 'email',
-      },
+      admin: { useAsTitle: 'email' },
       fields: [],
     },
     {
       slug: 'media',
       upload: true,
-      fields: [
-        {
-          name: 'alt',
-          type: 'text',
-        },
-      ],
+      fields: [{ name: 'alt', type: 'text' }],
     },
     {
       slug: 'posts',
       admin: { useAsTitle: 'title' },
-      access: { read: () => true },
+      access: {
+        read: ({ req }) => {
+          if (req.user) return true
+          return { _status: { equals: 'published' } }
+        },
+      },
+      versions: {
+        drafts: true,
+      },
       fields: [
         { name: 'title', type: 'text', required: true },
         { name: 'slug', type: 'text', required: true, unique: true, admin: { position: 'sidebar' } },
@@ -58,6 +61,16 @@ export default buildConfig({
         { name: 'publishedAt', type: 'date', admin: { position: 'sidebar' } },
       ],
     },
+  ],
+  plugins: [
+    seoPlugin({
+      collections: ['posts'],
+      uploadsCollection: 'media',
+      tabbedUI: true,
+      generateTitle: ({ doc }) => `${doc.title} | Yoinky Blog`,
+      generateDescription: ({ doc }) => doc.excerpt as string,
+      generateURL: ({ doc }) => `${SITE_URL}/blog/${doc.slug}`,
+    }),
   ],
   secret: process.env.PAYLOAD_SECRET || '',
   db: postgresAdapter({

@@ -57,7 +57,7 @@ export default function PricingSection() {
   const [isAnnual, setIsAnnual] = useState(false);
 
   return (
-    <section className="bg-white px-6 md:px-16 pb-20 md:pb-28">
+    <section className="bg-[#FDF6EF] px-6 md:px-16 pb-20 md:pb-28">
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
 
         {/* Header — two-column editorial */}

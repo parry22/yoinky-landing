@@ -100,7 +100,7 @@ export default function Nav({ light }: { light?: boolean }) {
       <div
         className="fixed inset-0 z-50 flex flex-col px-7 pt-7 pb-12 md:px-12 md:pt-8 md:pb-14"
         style={{
-          backgroundColor: "white",
+          backgroundColor: "#FDF6EF",
           clipPath: open ? "inset(0 0 0% 0 round 0px)" : "inset(0 0 100% 0 round 0px)",
           transition: "clip-path 0.65s cubic-bezier(0.77,0,0.175,1)",
           pointerEvents: open ? "auto" : "none",

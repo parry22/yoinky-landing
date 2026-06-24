@@ -83,7 +83,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   };
 
   return (
-    <div style={{ backgroundColor: "white", minHeight: "100vh" }}>
+    <div style={{ backgroundColor: "#FDF6EF", minHeight: "100vh" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

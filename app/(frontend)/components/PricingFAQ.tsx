@@ -43,7 +43,7 @@ export default function PricingFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="bg-white px-6 md:px-16 pb-20 md:pb-28">
+    <section className="bg-[#FDF6EF] px-6 md:px-16 pb-20 md:pb-28">
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-16 mb-10 md:mb-14 items-end">
@@ -75,7 +75,7 @@ export default function PricingFAQ() {
                 style={{
                   borderRadius: 12,
                   border: "1px solid rgba(0,0,0,0.07)",
-                  backgroundColor: "white",
+                  backgroundColor: "#FDF6EF",
                   overflow: "hidden",
                 }}
               >

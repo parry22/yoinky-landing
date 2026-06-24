@@ -46,7 +46,7 @@ export default function FeatureSection() {
   const tab = TABS[active];
 
   return (
-    <section id="how-it-works" className="bg-white py-20 md:py-28 px-6 md:px-16">
+    <section id="how-it-works" className="bg-[#FDF6EF] py-20 md:py-28 px-6 md:px-16">
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
 
         {/* Header — editorial two-column */}

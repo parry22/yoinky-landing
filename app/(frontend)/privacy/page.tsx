@@ -10,7 +10,7 @@ const PINK = "#F85BA9";
 const DM = "DM Sans, sans-serif";
 
 const S = {
-  page:    { backgroundColor: "white", minHeight: "100vh" } as React.CSSProperties,
+  page:    { backgroundColor: "#FDF6EF", minHeight: "100vh" } as React.CSSProperties,
   wrap:    { maxWidth: 720, margin: "0 auto", padding: "clamp(72px,12vw,108px) clamp(24px,6vw,40px) clamp(64px,10vw,96px)" } as React.CSSProperties,
   tag:     { fontSize: 11, fontFamily: DM, fontWeight: 600, letterSpacing: "0.1em", color: PINK, textTransform: "uppercase" as const },
   h1:      { fontSize: "clamp(32px,6vw,52px)", fontWeight: 700, color: "#0C0C0C", lineHeight: 1.1, margin: "10px 0 14px", letterSpacing: "-0.5px" } as React.CSSProperties,

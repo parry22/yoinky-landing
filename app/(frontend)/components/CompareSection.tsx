@@ -126,7 +126,7 @@ export default function CompareSection() {
   const competitor = COMPETITORS[active];
 
   return (
-    <section className="bg-white py-20 md:py-28 px-6 md:px-16">
+    <section className="bg-[#FDF6EF] py-20 md:py-28 px-6 md:px-16">
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
 
         {/* Header — two-column editorial */}
@@ -224,7 +224,7 @@ export default function CompareSection() {
                 gridTemplateColumns: "1fr clamp(88px, 13vw, 160px) clamp(88px, 13vw, 160px)",
                 padding: "18px clamp(16px, 3vw, 28px)",
                 borderBottom: i < FEATURES.length - 1 ? "1px solid rgba(0,0,0,0.05)" : "none",
-                backgroundColor: "white",
+                backgroundColor: "#FDF6EF",
                 alignItems: "center",
               }}
             >

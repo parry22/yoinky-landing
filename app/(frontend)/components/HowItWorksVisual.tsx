@@ -143,7 +143,7 @@ function ActVisual() {
       </p>
 
       <div style={{ display: "flex", gap: "clamp(6px,1.5vw,10px)", flexWrap: "wrap" }}>
-        <button style={{ display: "inline-flex", alignItems: "center", gap: 6, backgroundColor: "white", color: "#111", border: "none", borderRadius: 100, padding: "clamp(7px,1.5vw,10px) clamp(14px,2.5vw,20px)", fontSize: "clamp(11px,2.2vw,13px)", fontFamily: DM, fontWeight: 500, cursor: "pointer" }}>
+        <button style={{ display: "inline-flex", alignItems: "center", gap: 6, backgroundColor: "#FDF6EF", color: "#111", border: "none", borderRadius: 100, padding: "clamp(7px,1.5vw,10px) clamp(14px,2.5vw,20px)", fontSize: "clamp(11px,2.2vw,13px)", fontFamily: DM, fontWeight: 500, cursor: "pointer" }}>
           🚀 Review draft
         </button>
         <button style={{ backgroundColor: "transparent", color: "rgba(255,255,255,0.6)", border: "1px solid rgba(255,255,255,0.18)", borderRadius: 100, padding: "clamp(7px,1.5vw,10px) clamp(14px,2.5vw,20px)", fontSize: "clamp(11px,2.2vw,13px)", fontFamily: DM, cursor: "pointer" }}>

@@ -42,7 +42,7 @@ const FEATURES = [
 
 export default function FeatureStack() {
   return (
-    <section id="features" className="bg-white px-6 md:px-16 pb-0">
+    <section id="features" className="bg-[#FDF6EF] px-6 md:px-16 pb-0">
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
 
         {/* Header */}

@@ -28,7 +28,7 @@ export default async function BlogPage() {
   const posts = await getPosts();
 
   return (
-    <div style={{ backgroundColor: "white", minHeight: "100vh" }}>
+    <div style={{ backgroundColor: "#FDF6EF", minHeight: "100vh" }}>
       <Nav light />
 
       {/* Header */}

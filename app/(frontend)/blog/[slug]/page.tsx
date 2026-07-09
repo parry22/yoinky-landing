@@ -6,7 +6,8 @@ import SiteFooter from "../../components/SiteFooter";
 import { getPayload } from "payload";
 import config from "@payload-config";
 import { RichText } from "@payloadcms/richtext-lexical/react";
-import { BG, TEXT, TEXT_SOFT, LINE, SERIF, UI, TELEGRAM_URL } from "../../components/theme";
+import { BG, TEXT, TEXT_SOFT, LINE, SERIF, UI } from "../../components/theme";
+import TelegramButton from "../../components/TelegramButton";
 
 export const revalidate = 60;
 
@@ -154,19 +155,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           <p style={{ fontFamily: UI, fontSize: 14, color: TEXT_SOFT, margin: "0 0 20px", lineHeight: 1.6, maxWidth: 440, letterSpacing: 0 }}>
             An AI agent that actually makes real sense of your growing personal brand.
           </p>
-          <a
-            href={TELEGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              fontFamily: UI, fontSize: 12.5, fontWeight: 600, letterSpacing: "0.05em",
-              color: "#111", backgroundColor: "#fff",
-              borderRadius: 100, padding: "10px 20px",
-              textDecoration: "none", display: "inline-block",
-            }}
-          >
-            Start on Telegram
-          </a>
+          <TelegramButton />
         </div>
 
       </main>

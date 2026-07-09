@@ -1,4 +1,5 @@
-import { TEXT, TEXT_SOFT, LINE, SERIF, UI, TELEGRAM_URL } from "./theme";
+import { TEXT, TEXT_SOFT, LINE, SERIF, UI } from "./theme";
+import TelegramButton from "./TelegramButton";
 
 const INCLUDED = [
   "Unlimited messages, in English, Hindi, and Hinglish",
@@ -63,20 +64,9 @@ export default function PricingSection() {
         </ul>
         <div style={{ borderTop: `1px solid ${LINE}` }} />
 
-        <a
-          href={TELEGRAM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            fontFamily: UI, fontSize: 12.5, fontWeight: 600, letterSpacing: "0.05em",
-            color: "#111", backgroundColor: "#fff",
-            borderRadius: 100, padding: "10px 20px",
-            textDecoration: "none", display: "inline-block",
-            marginTop: "clamp(24px,3.5vw,32px)",
-          }}
-        >
-          Start on Telegram
-        </a>
+        <div style={{ marginTop: "clamp(24px,3.5vw,32px)" }}>
+          <TelegramButton />
+        </div>
       </div>
     </div>
   );

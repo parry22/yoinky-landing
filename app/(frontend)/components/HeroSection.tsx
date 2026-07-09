@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { SERIF, UI, TELEGRAM_URL } from "./theme";
+import TelegramButton from "./TelegramButton";
 
 const NAV_LINKS = [
   { label: "Blog", href: "/blog" },
@@ -15,38 +16,38 @@ const PERSONAS = [
     key: "founders",
     label: "Founders",
     video: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_081127_0992a171-d3c6-4978-8213-0ec5df8b6d63.mp4",
-    heading: ["Great builders.", "Forgettable brands."],
-    subtext: "You're heads-down shipping while a competitor with a weaker product wins the room, because they never stop posting and you never have time to. Yoinky turns what you tell it between meetings into the presence investors actually remember.",
+    heading: ["Your build in public", "went quiet."],
+    subtext: "Somewhere between shipping and surviving, the updates stopped. Yoinky pulls the story back out of your head and keeps it going, even on the weeks you can't.",
     dark: false,
   },
   {
     key: "creators",
     label: "Creators",
     video: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_092026_dd05b805-ea0f-40b2-8c52-332b88502592.mp4",
-    heading: ["Filmed it.", "Forgot it."],
-    subtext: "Your best line came to you three weeks ago, mid-edit, and it's still sitting there, unopened. Yoinky remembers everything you've said and turns it into the essay you keep meaning to write.",
+    heading: ["You already had", "the idea."],
+    subtext: "It's buried somewhere in your last six months of posts. Yoinky digs it out and brings it back right when it matters.",
     dark: false,
   },
   {
     key: "consultants",
     label: "Consultants",
     video: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_081042_df7202bf-bd80-4b2b-bbc6-1f09ba2870e9.mp4",
-    heading: ["You know more", "than you've ever said."],
-    subtext: "Your best insight is sitting inside a client call, not on your profile, so your next client can't find it before they hire someone louder. Yoinky reads your history and drafts the proof of expertise they're already searching for.",
+    heading: ["Nobody can find", "your expertise."],
+    subtext: "You solve hard problems for a living and it barely shows up anywhere. Yoinky turns what you already know into work people can actually see.",
     dark: true,
   },
   {
     key: "everyone",
     label: "Everyone",
     video: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_080959_4cac5234-3573-464e-a5b7-76b94b8a7d61.mp4",
-    heading: ["You think all day.", "You post once a month."],
-    subtext: "That gap, between what's in your head and what's on your profile, is where your personal brand quietly dies. Yoinky closes it: strategy, drafts, and PR from one AI agent that actually knows you.",
+    heading: ["You don't really have", "a brand online."],
+    subtext: "Just scattered posts, no throughline anyone would recognize as you. Yoinky finds the version of you that's already there and helps you actually show it.",
     dark: false,
   },
 ];
 
-// Placeholder figures — swap for real numbers once they exist.
-const STATS = ["50K+ ideas captured", "1,200+ creators onboarded", "94% weekly retention", "4.9/5 average rating"];
+// Honest for pre-launch: capability and status, not invented traction.
+const STATS = ["Currently in private beta", "6 agency roles, 1 agent", "English · Hindi · Hinglish", "0 posts without your say"];
 
 const DARK = "#182C41";
 const TRANSITION_MS = 1000;
@@ -73,10 +74,10 @@ export default function HeroSection() {
 
   const persona = PERSONAS[active];
   const contentColor = persona.dark ? DARK : "#FFFFFF";
-  // Adaptive glow so text stays legible over whatever the video is doing underneath.
+  // Subtle lift so text stays legible over whatever the video is doing underneath.
   const textGlow = persona.dark
-    ? "0 2px 20px rgba(255,255,255,0.7), 0 1px 5px rgba(255,255,255,0.45)"
-    : "0 2px 24px rgba(0,0,0,0.55), 0 1px 6px rgba(0,0,0,0.4)";
+    ? "0 1px 10px rgba(255,255,255,0.4)"
+    : "0 1px 12px rgba(0,0,0,0.35)";
   const glassTint = persona.dark ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.24)";
 
   return (
@@ -113,7 +114,7 @@ export default function HeroSection() {
 
         {/* Nav */}
         <nav className="flex items-center justify-between px-5 pt-5 sm:px-8 sm:pt-8">
-          <a href="/" style={{ fontFamily: SERIF, fontStyle: "italic", color: "#fff", fontSize: "clamp(20px,3vw,24px)", textDecoration: "none", textShadow: "0 2px 16px rgba(0,0,0,0.5)" }}>
+          <a href="/" style={{ fontFamily: SERIF, fontStyle: "italic", color: "#fff", fontSize: "clamp(20px,3vw,24px)", textDecoration: "none", textShadow: "0 1px 8px rgba(0,0,0,0.35)" }}>
             Yoinky
           </a>
 
@@ -130,14 +131,7 @@ export default function HeroSection() {
                 {l.label}
               </a>
             ))}
-            <a
-              href={TELEGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ fontFamily: UI, fontSize: 14, fontWeight: 600, color: "#111", backgroundColor: "#fff", borderRadius: 100, padding: "9px 18px", textDecoration: "none", marginLeft: 4 }}
-            >
-              Get Started
-            </a>
+            <TelegramButton label="Get Started" size="sm" style={{ marginLeft: 4 }} />
           </div>
 
           {/* mobile hamburger */}
@@ -210,22 +204,16 @@ export default function HeroSection() {
                 {l.label}
               </a>
             ))}
-            <a
-              href={TELEGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMenuOpen(false)}
+            <div
               style={{
-                fontFamily: UI, fontSize: 16, fontWeight: 600, color: "#111",
-                backgroundColor: "#fff", borderRadius: 100, padding: "13px 30px", textDecoration: "none",
                 marginTop: 12,
                 opacity: menuOpen ? 1 : 0,
                 transform: menuOpen ? "scale(1)" : "scale(0.9)",
                 transition: `opacity 500ms cubic-bezier(0.4,0,0.2,1) ${menuOpen ? 300 : 0}ms, transform 500ms cubic-bezier(0.4,0,0.2,1) ${menuOpen ? 300 : 0}ms`,
               }}
             >
-              Start on Telegram
-            </a>
+              <TelegramButton size="lg" style={{ fontSize: 16 }} onClick={() => setMenuOpen(false)} />
+            </div>
           </div>
         </div>
 
@@ -268,33 +256,22 @@ export default function HeroSection() {
               style={{
                 fontFamily: UI,
                 fontSize: "clamp(14.5px,1.8vw,17px)",
-                lineHeight: 1.65,
+                lineHeight: 1.6,
                 color: contentColor,
                 opacity: persona.dark ? 0.85 : 0.9,
                 textShadow: textGlow,
                 transition: `color ${TRANSITION_MS - 300}ms ease`,
-                maxWidth: 560,
-                margin: "clamp(18px,2.5vw,24px) 0 0",
+                maxWidth: 500,
+                margin: "clamp(16px,2.2vw,20px) 0 0",
               }}
             >
               {persona.subtext}
             </p>
 
             {/* CTA — standalone button, no input field */}
-            <a
-              href={TELEGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                fontFamily: UI, fontSize: 15, fontWeight: 600, color: "#111",
-                backgroundColor: "#fff", borderRadius: 100, padding: "14px 32px",
-                textDecoration: "none",
-                marginTop: "clamp(26px,4vw,36px)",
-                boxShadow: "0 8px 30px rgba(0,0,0,0.25)",
-              }}
-            >
-              Start on Telegram
-            </a>
+            <div style={{ marginTop: "clamp(26px,4vw,36px)" }}>
+              <TelegramButton size="lg" />
+            </div>
 
             {/* Persona switcher — always white, independent of the dark-mode content shift */}
             <div className="flex items-center justify-center flex-wrap" style={{ gap: "clamp(18px,3vw,32px)", marginTop: "clamp(28px,4vw,40px)" }}>
@@ -307,7 +284,7 @@ export default function HeroSection() {
                     style={{
                       fontFamily: UI, fontSize: 13, fontWeight: 500,
                       color: isActive ? "#fff" : "rgba(255,255,255,0.55)",
-                      textShadow: "0 1px 12px rgba(0,0,0,0.55)",
+                      textShadow: "0 1px 8px rgba(0,0,0,0.35)",
                       background: "none", border: "none", cursor: "pointer",
                       paddingBottom: 8,
                       borderBottom: isActive ? "1.5px solid #fff" : "1.5px solid transparent",
@@ -324,12 +301,12 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Bottom stats — always white, pure metrics */}
+        {/* Bottom stats — always white, honest for pre-launch */}
         <div className="flex items-center justify-center flex-wrap px-5 pb-6 sm:pb-8" style={{ gap: 10 }}>
           {STATS.map((stat, i) => (
             <span key={stat} className="flex items-center" style={{ gap: 10 }}>
               {i > 0 && <span className="hidden sm:inline" style={{ color: "rgba(255,255,255,0.3)", fontFamily: UI, fontSize: 13 }}>|</span>}
-              <span style={{ fontFamily: UI, fontSize: 12.5, color: "rgba(255,255,255,0.7)", textShadow: "0 1px 10px rgba(0,0,0,0.5)" }}>{stat}</span>
+              <span style={{ fontFamily: UI, fontSize: 12.5, color: "rgba(255,255,255,0.7)", textShadow: "0 1px 6px rgba(0,0,0,0.35)" }}>{stat}</span>
             </span>
           ))}
         </div>

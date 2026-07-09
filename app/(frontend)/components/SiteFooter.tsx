@@ -1,4 +1,5 @@
-import { TEXT, TEXT_SOFT, LINE, UI, TELEGRAM_URL } from "./theme";
+import { TEXT, TEXT_SOFT, LINE, UI } from "./theme";
+import TelegramButton from "./TelegramButton";
 
 export default function SiteFooter() {
   return (
@@ -17,19 +18,7 @@ export default function SiteFooter() {
           <a href="/terms" style={{ fontFamily: UI, fontSize: 13, fontWeight: 500, color: TEXT, textDecoration: "none", letterSpacing: 0 }}>
             Terms
           </a>
-          <a
-            href={TELEGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              fontFamily: UI, fontSize: 12.5, fontWeight: 600, letterSpacing: "0.05em",
-              color: "#111", backgroundColor: "#fff",
-              borderRadius: 100, padding: "9px 18px",
-              textDecoration: "none", display: "inline-block",
-            }}
-          >
-            Start on Telegram
-          </a>
+          <TelegramButton size="sm" />
         </div>
       </div>
     </footer>

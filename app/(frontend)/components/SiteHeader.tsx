@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-import { SERIF, UI, TELEGRAM_URL } from "./theme";
+import { SERIF, UI } from "./theme";
+import TelegramButton from "./TelegramButton";
 
 const NAV_LINKS = [
   { label: "Blog", href: "/blog" },
@@ -36,14 +37,7 @@ export default function SiteHeader() {
             {l.label}
           </a>
         ))}
-        <a
-          href={TELEGRAM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ fontFamily: UI, fontSize: 14, fontWeight: 600, color: "#111", backgroundColor: "#fff", borderRadius: 100, padding: "9px 18px", textDecoration: "none", marginLeft: 4 }}
-        >
-          Get Started
-        </a>
+        <TelegramButton label="Get Started" size="sm" style={{ marginLeft: 4 }} />
       </div>
 
       {/* mobile hamburger */}
@@ -114,22 +108,16 @@ export default function SiteHeader() {
               {l.label}
             </a>
           ))}
-          <a
-            href={TELEGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMenuOpen(false)}
+          <div
             style={{
-              fontFamily: UI, fontSize: 16, fontWeight: 600, color: "#111",
-              backgroundColor: "#fff", borderRadius: 100, padding: "13px 30px", textDecoration: "none",
               marginTop: 12,
               opacity: menuOpen ? 1 : 0,
               transform: menuOpen ? "scale(1)" : "scale(0.9)",
               transition: `opacity 500ms cubic-bezier(0.4,0,0.2,1) ${menuOpen ? 300 : 0}ms, transform 500ms cubic-bezier(0.4,0,0.2,1) ${menuOpen ? 300 : 0}ms`,
             }}
           >
-            Start on Telegram
-          </a>
+            <TelegramButton size="lg" style={{ fontSize: 16 }} onClick={() => setMenuOpen(false)} />
+          </div>
         </div>
       </div>
     </header>

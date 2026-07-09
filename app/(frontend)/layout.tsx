@@ -1,18 +1,21 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { Instrument_Serif } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import SmoothScroll from "./components/SmoothScroll";
 
-const dmSans = DM_Sans({
+// Site-wide now: display serif for headings/logo, system-ui for body (set in globals.css).
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  weight: ["500"],
-  variable: "--font-dm-sans",
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
 });
 
 export const metadata: Metadata = {
   title: "Yoinky",
-  description: "A Proactive and Ambient AI that learns from you and understands you better than you do.",
+  description:
+    "An AI agent that actually makes real sense of your growing personal brand. Lives in Telegram.",
 };
 
 export default function RootLayout({
@@ -21,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} h-full`}>
+    <html lang="en" className={`${instrumentSerif.variable} h-full`}>
       <body className="min-h-full flex flex-col" suppressHydrationWarning><SmoothScroll>{children}</SmoothScroll></body>
       <Script
         src="https://analytics.ahrefs.com/analytics.js"

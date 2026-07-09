@@ -1,0 +1,37 @@
+import { TEXT, TEXT_SOFT, LINE, UI, TELEGRAM_URL } from "./theme";
+
+export default function SiteFooter() {
+  return (
+    <footer className="px-6 md:px-12" style={{ borderTop: `1px solid ${LINE}`, marginTop: "clamp(56px,8vw,96px)" }}>
+      <div
+        className="flex flex-col md:flex-row md:items-center md:justify-between"
+        style={{ padding: "clamp(20px,3vw,28px) 0", gap: 16 }}
+      >
+        <p style={{ fontFamily: UI, fontSize: 13, color: TEXT_SOFT, margin: 0, letterSpacing: 0 }}>
+          © 2026 Yoinky. All rights reserved.
+        </p>
+        <div className="flex items-center" style={{ gap: 22 }}>
+          <a href="/privacy" style={{ fontFamily: UI, fontSize: 13, fontWeight: 500, color: TEXT, textDecoration: "none", letterSpacing: 0 }}>
+            Privacy
+          </a>
+          <a href="/terms" style={{ fontFamily: UI, fontSize: 13, fontWeight: 500, color: TEXT, textDecoration: "none", letterSpacing: 0 }}>
+            Terms
+          </a>
+          <a
+            href={TELEGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontFamily: UI, fontSize: 12.5, fontWeight: 600, letterSpacing: "0.05em",
+              color: "#111", backgroundColor: "#fff",
+              borderRadius: 100, padding: "9px 18px",
+              textDecoration: "none", display: "inline-block",
+            }}
+          >
+            Start on Telegram
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
+}

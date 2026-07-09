@@ -1,23 +1,13 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: "VeronaSerial";
-  src: url("/fonts/VeronaSerial-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
-  --background: #FDF6EF;
-  --foreground: #171717;
-  --font-verona: "VeronaSerial", Georgia, serif;
+  --background: #0A0A0A;
+  --foreground: #FFFFFF;
 }
 
 @layer base {
   * {
-    font-family: var(--font-verona);
-    letter-spacing: -1px;
+    font-family: system-ui, sans-serif;
   }
 }
 
@@ -26,17 +16,39 @@ body {
   color: var(--foreground);
 }
 
-@media (max-width: 767px) {
-  .hero-section {
-    padding-top: 64px;
-    padding-bottom: 160px;
-  }
+/* ── Cinematic hero: liquid glass ── */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.01);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(180deg,
+    rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
+    rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
+    rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
-@media (min-width: 769px) {
-  .hero-section {
-    padding-bottom: 120px;
-  }
+@keyframes heroOverlayBob {
+  0%, 100% { transform: translateY(0) scale(1.03); }
+  50%      { transform: translateY(-6px) scale(1.03); }
+}
+.hero-overlay-bob {
+  animation: heroOverlayBob 3s ease-in-out infinite;
 }
 
 /* Page load fade-in animation */
@@ -60,36 +72,10 @@ body {
 .fade-in-3 { animation-delay: 0.35s; }
 .fade-in-4 { animation-delay: 0.5s;  }
 
-/* DM Sans — defined outside any layer so it beats @layer base */
-.dm-sans {
-  font-family: var(--font-dm-sans) !important;
-}
-
-/* Blog card hover */
-.blog-card {
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 16px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-.blog-card:hover {
-  border-color: rgba(248,91,169,0.35);
-  box-shadow: 0 8px 32px rgba(248,91,169,0.08);
-}
-
 /* Article body spacing */
 .article-body p { margin-bottom: 1.4em; }
 .article-body h2 { margin-top: 2.4em; margin-bottom: 0.7em; }
 .article-body h3 { margin-top: 1.8em; margin-bottom: 0.5em; }
-
-/* Legal pages: body text in DM Sans, headings stay Verona */
-.legal-body * {
-  font-family: var(--font-dm-sans) !important;
-}
-.legal-body h1,
-.legal-body h2,
-.legal-body h3 {
-  font-family: var(--font-verona) !important;
-}
 
 @keyframes tabBarFill {
   from { transform: scaleX(0); }

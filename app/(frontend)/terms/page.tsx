@@ -1,38 +1,38 @@
-import Nav from "../components/Nav";
-import CTAFooter from "../components/CTAFooter";
+import SiteHeader from "../components/SiteHeader";
+import SiteFooter from "../components/SiteFooter";
+import { BG, TEXT as PINK, TEXT_SOFT, LINE, SERIF, UI } from "../components/theme";
 
 export const metadata = {
   title: "Terms of Service — Yoinky",
   description: "The terms that govern your use of the Yoinky desktop application.",
 };
 
-const PINK = "#F85BA9";
-const DM = "DM Sans, sans-serif";
+const DM = UI;
 
 const S = {
-  page:    { backgroundColor: "#FDF6EF", minHeight: "100vh" } as React.CSSProperties,
-  wrap:    { maxWidth: 720, margin: "0 auto", padding: "clamp(72px,12vw,108px) clamp(24px,6vw,40px) clamp(64px,10vw,96px)" } as React.CSSProperties,
-  tag:     { fontSize: 11, fontFamily: DM, fontWeight: 600, letterSpacing: "0.1em", color: PINK, textTransform: "uppercase" as const },
-  h1:      { fontSize: "clamp(32px,6vw,52px)", fontWeight: 700, color: "#0C0C0C", lineHeight: 1.1, margin: "10px 0 14px", letterSpacing: "-0.5px" } as React.CSSProperties,
-  meta:    { fontSize: 13, fontFamily: DM, color: "rgba(0,0,0,0.38)", marginBottom: 0 } as React.CSSProperties,
-  divider: { border: "none", borderTop: "1px solid rgba(0,0,0,0.07)", margin: "clamp(32px,5vw,48px) 0" } as React.CSSProperties,
-  h2:      { fontSize: "clamp(16px,2.8vw,19px)", fontWeight: 650, color: "#0C0C0C", letterSpacing: "-0.2px", margin: "clamp(32px,5vw,44px) 0 10px" } as React.CSSProperties,
-  h3:      { fontSize: "clamp(13px,2vw,14px)", fontWeight: 600, color: "#222", letterSpacing: "0.01em", margin: "20px 0 6px" } as React.CSSProperties,
-  p:       { fontFamily: DM, fontSize: "clamp(14px,2.4vw,15.5px)", color: "rgba(0,0,0,0.65)", lineHeight: 1.85, margin: "0 0 14px" } as React.CSSProperties,
-  ul:      { fontFamily: DM, fontSize: "clamp(14px,2.4vw,15.5px)", color: "rgba(0,0,0,0.65)", lineHeight: 1.85, paddingLeft: 22, margin: "0 0 14px" } as React.CSSProperties,
-  ol:      { fontFamily: DM, fontSize: "clamp(14px,2.4vw,15.5px)", color: "rgba(0,0,0,0.65)", lineHeight: 1.85, paddingLeft: 22, margin: "0 0 14px" } as React.CSSProperties,
+  page:    { backgroundColor: BG, minHeight: "100vh", display: "flex", flexDirection: "column" } as React.CSSProperties,
+  wrap:    { maxWidth: 720, margin: "0 auto", padding: "clamp(24px,4vw,44px) clamp(24px,6vw,40px) clamp(64px,10vw,96px)", flex: 1, width: "100%", boxSizing: "border-box" } as React.CSSProperties,
+  tag:     { fontSize: 11, fontFamily: DM, fontWeight: 700, letterSpacing: "0.1em", color: TEXT_SOFT, textTransform: "uppercase" as const },
+  h1:      { fontFamily: SERIF, fontSize: "clamp(40px,7vw,64px)", fontWeight: 400, color: PINK, lineHeight: 1.05, margin: "10px 0 14px", letterSpacing: 0 } as React.CSSProperties,
+  meta:    { fontSize: 13, fontFamily: DM, color: TEXT_SOFT, marginBottom: 0, letterSpacing: 0 } as React.CSSProperties,
+  divider: { border: "none", borderTop: `1px solid ${LINE}`, margin: "clamp(32px,5vw,48px) 0" } as React.CSSProperties,
+  h2:      { fontFamily: SERIF, fontSize: "clamp(20px,3.2vw,26px)", fontWeight: 400, color: PINK, letterSpacing: 0, margin: "clamp(32px,5vw,44px) 0 10px" } as React.CSSProperties,
+  h3:      { fontFamily: DM, fontSize: "clamp(13px,2vw,14px)", fontWeight: 700, color: PINK, letterSpacing: 0, margin: "20px 0 6px" } as React.CSSProperties,
+  p:       { fontFamily: DM, fontSize: "clamp(14px,2.4vw,15.5px)", color: TEXT_SOFT, lineHeight: 1.8, margin: "0 0 14px", letterSpacing: 0 } as React.CSSProperties,
+  ul:      { fontFamily: DM, fontSize: "clamp(14px,2.4vw,15.5px)", color: TEXT_SOFT, lineHeight: 1.8, paddingLeft: 22, margin: "0 0 14px", letterSpacing: 0 } as React.CSSProperties,
+  ol:      { fontFamily: DM, fontSize: "clamp(14px,2.4vw,15.5px)", color: TEXT_SOFT, lineHeight: 1.8, paddingLeft: 22, margin: "0 0 14px", letterSpacing: 0 } as React.CSSProperties,
   li:      { marginBottom: 8 } as React.CSSProperties,
-  strong:  { color: "rgba(0,0,0,0.78)", fontWeight: 600 } as React.CSSProperties,
-  warn:    { background: "#FFF0F7", border: `1px solid ${PINK}30`, borderRadius: 10, padding: "14px 18px", margin: "16px 0 20px", fontFamily: DM, fontSize: 14, color: "rgba(0,0,0,0.65)", lineHeight: 1.7 } as React.CSSProperties,
-  note:    { background: "#F9F9FB", border: "1px solid rgba(0,0,0,0.07)", borderRadius: 10, padding: "14px 18px", margin: "16px 0 20px", fontFamily: DM, fontSize: 14, color: "rgba(0,0,0,0.6)", lineHeight: 1.7 } as React.CSSProperties,
-  caps:    { fontFamily: DM, fontSize: "clamp(13px,2.2vw,14px)", color: "rgba(0,0,0,0.6)", lineHeight: 1.8, margin: "0 0 14px" } as React.CSSProperties,
+  strong:  { color: PINK, fontWeight: 700 } as React.CSSProperties,
+  warn:    { background: "rgba(255,255,255,0.05)", border: `1px solid ${LINE}`, borderRadius: 10, padding: "14px 18px", margin: "16px 0 20px", fontFamily: DM, fontSize: 14, color: TEXT_SOFT, lineHeight: 1.7, letterSpacing: 0 } as React.CSSProperties,
+  note:    { background: "rgba(255,255,255,0.05)", border: `1px solid ${LINE}`, borderRadius: 10, padding: "14px 18px", margin: "16px 0 20px", fontFamily: DM, fontSize: 14, color: TEXT_SOFT, lineHeight: 1.7, letterSpacing: 0 } as React.CSSProperties,
+  caps:    { fontFamily: DM, fontSize: "clamp(13px,2.2vw,14px)", color: TEXT_SOFT, lineHeight: 1.8, margin: "0 0 14px", letterSpacing: 0 } as React.CSSProperties,
 };
 
 export default function TermsPage() {
   return (
     <div style={S.page}>
-      <Nav light />
-      <main style={S.wrap} className="legal-body">
+      <SiteHeader />
+      <main style={S.wrap}>
 
         {/* Header */}
         <p style={S.tag}>Legal</p>
@@ -226,7 +226,7 @@ export default function TermsPage() {
         </div>
 
       </main>
-      <CTAFooter />
+      <SiteFooter />
     </div>
   );
 }

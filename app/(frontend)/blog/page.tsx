@@ -1,18 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
-import Nav from "../components/Nav";
-import CTAFooter from "../components/CTAFooter";
+import SiteHeader from "../components/SiteHeader";
+import SiteFooter from "../components/SiteFooter";
 import { getPayload } from "payload";
 import config from "@payload-config";
+import { BG, TEXT, TEXT_SOFT, LINE, SERIF, UI } from "../components/theme";
 
 export const metadata = {
   title: "Blog | Yoinky",
-  description: "Thoughts on productivity, proactive AI, and the future of how we work.",
+  description: "Thoughts on memory, voice, and building a personal brand that actually sounds like you.",
 };
 
 export const revalidate = 60;
-
-const PINK = "#F85BA9";
 
 async function getPosts() {
   const payload = await getPayload({ config });
@@ -28,34 +27,35 @@ export default async function BlogPage() {
   const posts = await getPosts();
 
   return (
-    <div style={{ backgroundColor: "#FDF6EF", minHeight: "100vh" }}>
-      <Nav light />
+    <div style={{ backgroundColor: BG, minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <SiteHeader />
 
       {/* Header */}
-      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "clamp(64px,10vw,100px) clamp(24px,6vw,64px) clamp(32px,4vw,48px)" }}>
-        <span style={{ fontSize: 11, fontFamily: "DM Sans, sans-serif", fontWeight: 600, letterSpacing: "0.1em", color: PINK, textTransform: "uppercase" }}>
+      <div className="px-6 md:px-12">
+        <h1
+          style={{
+            fontFamily: SERIF, fontWeight: 400,
+            fontSize: "clamp(48px,8vw,84px)", lineHeight: 1,
+            letterSpacing: "-0.01em", color: TEXT,
+            margin: "clamp(24px,4vw,44px) 0 0",
+          }}
+        >
           Blog
-        </span>
-        <h1 style={{ fontSize: "clamp(36px,7vw,72px)", fontWeight: 700, color: "#0C0C0C", lineHeight: 1.05, margin: "10px 0 0", letterSpacing: "-1px" }}>
-          Ideas worth
-          <br className="hidden md:block" />
-          {" "}<span style={{ color: "rgba(0,0,0,0.35)" }}>thinking about.</span>
         </h1>
+        <p style={{ fontFamily: UI, fontSize: "clamp(15px,1.6vw,17px)", lineHeight: 1.55, color: TEXT_SOFT, margin: "clamp(14px,2vw,18px) 0 0", maxWidth: 460, letterSpacing: 0 }}>
+          Notes on memory, voice, and building a brand people actually recognize.
+        </p>
       </div>
 
-      {/* Divider */}
-      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 clamp(24px,6vw,64px)" }}>
-        <div style={{ borderTop: "1px solid rgba(0,0,0,0.08)" }} />
-      </div>
-
-      {/* Posts grid */}
-      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "clamp(32px,5vw,56px) clamp(24px,6vw,64px) clamp(64px,10vw,100px)" }}>
+      {/* Posts */}
+      <div className="px-6 md:px-12" style={{ flex: 1, marginTop: "clamp(32px,5vw,48px)" }}>
         {posts.length === 0 ? (
-          <p style={{ fontFamily: "DM Sans, sans-serif", color: "rgba(0,0,0,0.4)", fontSize: 15 }}>
+          <p style={{ fontFamily: UI, color: TEXT_SOFT, fontSize: 15, borderTop: `1px solid ${LINE}`, padding: "24px 0" }}>
             No posts yet. Add your first one in the admin panel.
           </p>
         ) : (
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 340px), 1fr))", gap: "clamp(20px,3vw,32px)" }}>
+          <div>
+            <div style={{ borderTop: `1px solid ${LINE}` }} />
             {posts.map((post) => (
               <Link
                 key={post.id}
@@ -63,51 +63,42 @@ export default async function BlogPage() {
                 style={{ textDecoration: "none", display: "block" }}
               >
                 <article
-                  className="blog-card"
-                  style={{ height: "100%", display: "flex", flexDirection: "column", cursor: "pointer", overflow: "hidden" }}
+                  className="grid md:grid-cols-[160px_1fr_auto] items-center"
+                  style={{ gap: "clamp(16px,2.5vw,28px)", borderBottom: `1px solid ${LINE}`, padding: "clamp(20px,3vw,28px) 0" }}
                 >
-                  {post.image && (
-                    <div style={{ position: "relative", width: "100%", aspectRatio: "16 / 9", flexShrink: 0 }}>
-                      <Image
-                        src={post.image as string}
-                        alt={post.title}
-                        fill
-                        style={{ objectFit: "cover" }}
-                      />
+                  {post.image ? (
+                    <div style={{ position: "relative", width: "100%", aspectRatio: "16 / 10", borderRadius: 8, overflow: "hidden", backgroundColor: "rgba(255,255,255,0.06)" }}>
+                      <Image src={post.image as string} alt={post.title} fill sizes="160px" style={{ objectFit: "cover" }} />
                     </div>
+                  ) : (
+                    <div className="hidden md:block" />
                   )}
 
-                  <div style={{ padding: "clamp(20px,3vw,28px)", display: "flex", flexDirection: "column", flex: 1 }}>
+                  <div>
                     {post.tag && (
-                      <span style={{
-                        display: "inline-block", fontSize: 11, fontFamily: "DM Sans, sans-serif",
-                        fontWeight: 600, letterSpacing: "0.08em", color: PINK, background: "#FFF0F7",
-                        borderRadius: 100, padding: "3px 10px", marginBottom: "clamp(14px,2vw,20px)", alignSelf: "flex-start",
-                      }}>
+                      <span style={{ fontFamily: UI, fontSize: 11, fontWeight: 600, letterSpacing: "0.08em", color: TEXT_SOFT, display: "block", marginBottom: 8 }}>
                         {(post.tag as string).toUpperCase()}
                       </span>
                     )}
-
-                    <h2 style={{ fontSize: "clamp(18px,2.4vw,22px)", fontWeight: 700, color: "#0C0C0C", lineHeight: 1.25, letterSpacing: "-0.3px", margin: "0 0 clamp(10px,1.5vw,14px)", flex: 1 }}>
+                    <h2 style={{ fontFamily: SERIF, fontSize: "clamp(20px,2.6vw,26px)", fontWeight: 400, color: TEXT, lineHeight: 1.2, letterSpacing: 0, margin: "0 0 6px" }}>
                       {post.title}
                     </h2>
-
                     {post.excerpt && (
-                      <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "clamp(13px,1.8vw,15px)", color: "rgba(0,0,0,0.5)", lineHeight: 1.7, margin: "0 0 clamp(20px,2.5vw,28px)" }}>
+                      <p style={{ fontFamily: UI, fontSize: 14, color: TEXT_SOFT, lineHeight: 1.6, margin: 0, maxWidth: 520, letterSpacing: 0 }}>
                         {post.excerpt as string}
                       </p>
                     )}
+                  </div>
 
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
-                      <span style={{ fontFamily: "DM Sans, sans-serif", fontSize: 12, color: "rgba(0,0,0,0.35)" }}>
-                        {post.publishedAt ? new Date(post.publishedAt).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }) : ""}
+                  <div className="flex md:flex-col md:items-end gap-2 md:gap-1" style={{ whiteSpace: "nowrap" }}>
+                    <span style={{ fontFamily: UI, fontSize: 12.5, color: TEXT_SOFT, letterSpacing: 0 }}>
+                      {post.publishedAt ? new Date(post.publishedAt).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }) : ""}
+                    </span>
+                    {post.readTime && (
+                      <span style={{ fontFamily: UI, fontSize: 12.5, color: TEXT_SOFT, letterSpacing: 0 }}>
+                        {post.readTime as number} min read
                       </span>
-                      {post.readTime && (
-                        <span style={{ fontFamily: "DM Sans, sans-serif", fontSize: 12, color: "rgba(0,0,0,0.35)" }}>
-                          {post.readTime as number} min read
-                        </span>
-                      )}
-                    </div>
+                    )}
                   </div>
                 </article>
               </Link>
@@ -116,7 +107,7 @@ export default async function BlogPage() {
         )}
       </div>
 
-      <CTAFooter />
+      <SiteFooter />
     </div>
   );
 }

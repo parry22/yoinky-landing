@@ -9,5 +9,4 @@ export const SURFACE = "rgba(255,255,255,0.05)";
 export const SERIF = "var(--font-instrument-serif), 'Instrument Serif', serif";
 export const UI = "system-ui, sans-serif";
 
-// TODO: replace with the real bot link before launch
-export const TELEGRAM_URL = "https://t.me/yoinky";
+export const TELEGRAM_URL = "https://t.me/yoinkyybot";

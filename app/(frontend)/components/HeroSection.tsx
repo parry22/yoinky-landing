@@ -46,8 +46,7 @@ const PERSONAS = [
   },
 ];
 
-// Honest for pre-launch: capability and status, not invented traction.
-const STATS = ["Currently in private beta", "6 agency roles, 1 agent", "English · Hindi · Hinglish", "0 posts without your say"];
+const STATS = ["Storytelling Content", "Find Trends Fast", "Repurpose across X & LinkedIn", "Guest blogs & Podcasts Reachouts"];
 
 const DARK = "#182C41";
 const TRANSITION_MS = 1000;

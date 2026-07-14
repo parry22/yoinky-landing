@@ -9,4 +9,8 @@ export const SURFACE = "rgba(255,255,255,0.05)";
 export const SERIF = "var(--font-instrument-serif), 'Instrument Serif', serif";
 export const UI = "system-ui, sans-serif";
 
-export const TELEGRAM_URL = "https://t.me/yoinkyybot";
+// telegram.me, not t.me: t.me is DNS-blocked (NXDOMAIN) on several ISPs
+// (notably in India), so the bot link broke for a large share of visitors.
+// telegram.me is Telegram's official alternate domain — same destination,
+// same servers (149.154.167.99) — and isn't caught by those blocks.
+export const TELEGRAM_URL = "https://telegram.me/yoinkyybot";

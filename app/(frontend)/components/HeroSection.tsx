@@ -46,7 +46,7 @@ const PERSONAS = [
   },
 ];
 
-const STATS = ["Storytelling Content", "Find Trends Fast", "Repurpose across X & LinkedIn", "Guest blogs & Podcasts Reachouts"];
+const STATS = ["Storytelling Agent", "Find Trends Fast", "Repurpose across X & LinkedIn", "Guest blogs & Podcasts Reachouts"];
 
 const DARK = "#182C41";
 const TRANSITION_MS = 1000;

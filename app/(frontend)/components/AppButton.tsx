@@ -1,4 +1,4 @@
-import { UI, APP_URL } from "./theme";
+import { UI, APP_SIGNIN_URL } from "./theme";
 
 const SIZES = {
   sm: { fontSize: 14, padding: "9px 18px" },
@@ -19,7 +19,7 @@ export default function AppButton({
 }) {
   return (
     <a
-      href={APP_URL}
+      href={APP_SIGNIN_URL}
       onClick={onClick}
       className="group relative inline-block overflow-hidden"
       style={{

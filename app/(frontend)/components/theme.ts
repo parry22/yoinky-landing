@@ -17,3 +17,7 @@ export const TELEGRAM_URL = "https://telegram.me/yoinkyybot";
 
 // Root of the web app redirects to /login (Google auth) or /app if already signed in.
 export const APP_URL = "https://app.meetyoinky.com";
+
+// Skips the /login page and kicks straight into the Google OAuth flow —
+// lands back on /app once signed in.
+export const APP_SIGNIN_URL = "https://app.meetyoinky.com/api/auth/google/start";

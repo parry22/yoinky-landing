@@ -7,7 +7,7 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { BG, TEXT, TEXT_SOFT, LINE, SERIF, UI } from "../../components/theme";
-import TelegramButton from "../../components/TelegramButton";
+import AppButton from "../../components/AppButton";
 
 export const revalidate = 60;
 
@@ -155,7 +155,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           <p style={{ fontFamily: UI, fontSize: 14, color: TEXT_SOFT, margin: "0 0 20px", lineHeight: 1.6, maxWidth: 440, letterSpacing: 0 }}>
             An AI agent that actually makes real sense of your growing personal brand.
           </p>
-          <TelegramButton />
+          <AppButton />
         </div>
 
       </main>

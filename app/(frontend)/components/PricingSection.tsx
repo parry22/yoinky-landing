@@ -1,5 +1,5 @@
 import { TEXT, TEXT_SOFT, LINE, SERIF, UI } from "./theme";
-import TelegramButton from "./TelegramButton";
+import AppButton from "./AppButton";
 
 const INCLUDED = [
   "Unlimited messages, in English, Hindi, and Hinglish",
@@ -65,7 +65,7 @@ export default function PricingSection() {
         <div style={{ borderTop: `1px solid ${LINE}` }} />
 
         <div style={{ marginTop: "clamp(24px,3.5vw,32px)" }}>
-          <TelegramButton />
+          <AppButton />
         </div>
       </div>
     </div>

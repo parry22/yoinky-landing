@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-import { SERIF, UI, TELEGRAM_URL } from "./theme";
-import TelegramButton from "./TelegramButton";
+import { SERIF, UI } from "./theme";
+import AppButton from "./AppButton";
 
 const NAV_LINKS = [
   { label: "Blog", href: "/blog" },
@@ -130,7 +130,7 @@ export default function HeroSection() {
                 {l.label}
               </a>
             ))}
-            <TelegramButton label="Get Started" size="sm" style={{ marginLeft: 4 }} />
+            <AppButton label="Get Started" size="sm" style={{ marginLeft: 4 }} />
           </div>
 
           {/* mobile hamburger */}
@@ -211,7 +211,7 @@ export default function HeroSection() {
                 transition: `opacity 500ms cubic-bezier(0.4,0,0.2,1) ${menuOpen ? 300 : 0}ms, transform 500ms cubic-bezier(0.4,0,0.2,1) ${menuOpen ? 300 : 0}ms`,
               }}
             >
-              <TelegramButton size="lg" style={{ fontSize: 16 }} onClick={() => setMenuOpen(false)} />
+              <AppButton size="lg" style={{ fontSize: 16 }} onClick={() => setMenuOpen(false)} />
             </div>
           </div>
         </div>
@@ -269,7 +269,7 @@ export default function HeroSection() {
 
             {/* CTA — standalone button, no input field */}
             <div style={{ marginTop: "clamp(26px,4vw,36px)" }}>
-              <TelegramButton size="lg" />
+              <AppButton size="lg" />
             </div>
 
             {/* Persona switcher — always white, independent of the dark-mode content shift */}

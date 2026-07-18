@@ -14,3 +14,6 @@ export const UI = "system-ui, sans-serif";
 // telegram.me is Telegram's official alternate domain — same destination,
 // same servers (149.154.167.99) — and isn't caught by those blocks.
 export const TELEGRAM_URL = "https://telegram.me/yoinkyybot";
+
+// Root of the web app redirects to /login (Google auth) or /app if already signed in.
+export const APP_URL = "https://app.meetyoinky.com";

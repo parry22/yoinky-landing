@@ -1,5 +1,5 @@
 import { TEXT, TEXT_SOFT, LINE, UI } from "./theme";
-import TelegramButton from "./TelegramButton";
+import AppButton from "./AppButton";
 
 export default function SiteFooter() {
   return (
@@ -18,7 +18,7 @@ export default function SiteFooter() {
           <a href="/terms" style={{ fontFamily: UI, fontSize: 13, fontWeight: 500, color: TEXT, textDecoration: "none", letterSpacing: 0 }}>
             Terms
           </a>
-          <TelegramButton size="sm" />
+          <AppButton size="sm" />
         </div>
       </div>
     </footer>

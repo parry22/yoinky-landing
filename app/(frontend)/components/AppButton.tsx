@@ -1,4 +1,4 @@
-import { UI, TELEGRAM_URL } from "./theme";
+import { UI, APP_URL } from "./theme";
 
 const SIZES = {
   sm: { fontSize: 14, padding: "9px 18px" },
@@ -6,8 +6,8 @@ const SIZES = {
   lg: { fontSize: 15, padding: "14px 32px" },
 };
 
-export default function TelegramButton({
-  label = "Start on Telegram",
+export default function AppButton({
+  label = "Go to the app",
   size = "md",
   style,
   onClick,
@@ -19,9 +19,7 @@ export default function TelegramButton({
 }) {
   return (
     <a
-      href={TELEGRAM_URL}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={APP_URL}
       onClick={onClick}
       className="group relative inline-block overflow-hidden"
       style={{

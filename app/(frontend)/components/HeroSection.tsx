@@ -46,8 +46,6 @@ const PERSONAS = [
   },
 ];
 
-const STATS = ["Storytelling Agent", "Find Trends Fast", "Repurpose across X & LinkedIn", "Guest blogs & Podcasts Reachouts"];
-
 const DARK = "#182C41";
 const TRANSITION_MS = 1000;
 
@@ -298,16 +296,6 @@ export default function HeroSection() {
               })}
             </div>
           </div>
-        </div>
-
-        {/* Bottom stats — always white, honest for pre-launch */}
-        <div className="flex items-center justify-center flex-wrap px-5 pb-6 sm:pb-8" style={{ gap: 10 }}>
-          {STATS.map((stat, i) => (
-            <span key={stat} className="flex items-center" style={{ gap: 10 }}>
-              {i > 0 && <span className="hidden sm:inline" style={{ color: "rgba(255,255,255,0.3)", fontFamily: UI, fontSize: 13 }}>|</span>}
-              <span style={{ fontFamily: UI, fontSize: 12.5, color: "rgba(255,255,255,0.7)", textShadow: "0 1px 6px rgba(0,0,0,0.35)" }}>{stat}</span>
-            </span>
-          ))}
         </div>
       </div>
     </section>

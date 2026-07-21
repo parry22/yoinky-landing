@@ -118,6 +118,7 @@ export default function PersonasSection() {
                       style={{
                         width: 32, height: 32, borderRadius: "50%", flexShrink: 0,
                         display: "flex", alignItems: "center", justifyContent: "center",
+                        marginLeft: "auto",
                         backgroundColor: isOpen ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.04)",
                         transition: "background 400ms ease, transform 500ms cubic-bezier(0.22,1,0.36,1)",
                         transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",

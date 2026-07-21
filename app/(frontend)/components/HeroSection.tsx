@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { SERIF, UI } from "./theme";
 import AppButton from "./AppButton";
@@ -10,91 +10,41 @@ const NAV_LINKS = [
   { label: "Privacy", href: "/privacy" },
 ];
 
-// Placeholder footage — swap for Yoinky-shot b-roll before launch.
-const PERSONAS = [
-  {
-    key: "founders",
-    label: "Founders",
-    video: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_081127_0992a171-d3c6-4978-8213-0ec5df8b6d63.mp4",
-    heading: ["Your build in public", "went quiet."],
-    subtext: "Somewhere between shipping and surviving, the updates stopped. Yoinky pulls the story back out of your head and keeps it going, even on the weeks you can't.",
-    dark: false,
-  },
-  {
-    key: "creators",
-    label: "Creators",
-    video: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_092026_dd05b805-ea0f-40b2-8c52-332b88502592.mp4",
-    heading: ["You already had", "the idea."],
-    subtext: "It's buried somewhere in your last six months of posts. Yoinky digs it out and brings it back right when it matters.",
-    dark: false,
-  },
-  {
-    key: "consultants",
-    label: "Consultants",
-    video: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_081042_df7202bf-bd80-4b2b-bbc6-1f09ba2870e9.mp4",
-    heading: ["Nobody can find", "your expertise."],
-    subtext: "You solve hard problems for a living and it barely shows up anywhere. Yoinky turns what you already know into work people can actually see.",
-    dark: true,
-  },
-  {
-    key: "everyone",
-    label: "Everyone",
-    video: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_080959_4cac5234-3573-464e-a5b7-76b94b8a7d61.mp4",
-    heading: ["You don't really have", "a brand online."],
-    subtext: "Just scattered posts, no throughline anyone would recognize as you. Yoinky finds the version of you that's already there and helps you actually show it.",
-    dark: false,
-  },
-];
-
-const DARK = "#182C41";
-const TRANSITION_MS = 1000;
+// Single static hero: the founders scene. Heading + subtext are fixed.
+const HERO_HEADING: [string, string] = ["The only agent you", "need to grow on X"];
+const HERO_SUBTEXT =
+  "Yoinky helps you grow your personal brand & business on X without putting much effort";
+const HERO_VIDEO =
+  "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_081127_0992a171-d3c6-4978-8213-0ec5df8b6d63.mp4";
 
 export default function HeroSection() {
-  const [active, setActive] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const cooldownRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  useEffect(() => () => { if (cooldownRef.current) clearTimeout(cooldownRef.current); }, []);
-
-  const selectPersona = (index: number) => {
-    if (index === active || isTransitioning) return;
-    setActive(index);
-    setIsTransitioning(true);
-    cooldownRef.current = setTimeout(() => setIsTransitioning(false), TRANSITION_MS);
-  };
-
-  const persona = PERSONAS[active];
-  const contentColor = persona.dark ? DARK : "#FFFFFF";
+  const contentColor = "#FFFFFF";
   // Subtle lift so text stays legible over whatever the video is doing underneath.
-  const textGlow = persona.dark
-    ? "0 1px 10px rgba(255,255,255,0.4)"
-    : "0 1px 12px rgba(0,0,0,0.35)";
-  const glassTint = persona.dark ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.24)";
+  const textGlow = "0 1px 12px rgba(0,0,0,0.35)";
+  const glassTint = "rgba(0,0,0,0.24)";
 
   return (
     <section className="relative w-full h-dvh overflow-hidden bg-black">
 
       {/* ── Background video layer ── */}
-      {PERSONAS.map((p, i) => (
-        <video
-          key={p.key}
-          src={p.video}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          aria-hidden
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ opacity: i === active ? 1 : 0, transition: `opacity ${TRANSITION_MS}ms ease-in-out`, zIndex: 0 }}
-        />
-      ))}
+      <video
+        src={HERO_VIDEO}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-hidden
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ zIndex: 0 }}
+      />
 
       {/* ── Transparent PNG overlay, gentle bob ── */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -221,10 +171,10 @@ export default function HeroSection() {
             {/* Badge */}
             <div
               className="liquid-glass inline-flex items-center rounded-full"
-              style={{ padding: "8px 18px", marginBottom: "clamp(20px,3vw,28px)", backgroundColor: glassTint, transition: `background-color ${TRANSITION_MS - 300}ms ease` }}
+              style={{ padding: "8px 18px", marginBottom: "clamp(20px,3vw,28px)", backgroundColor: glassTint }}
             >
-              <span style={{ fontFamily: UI, fontSize: 13, color: contentColor, textShadow: textGlow, transition: `color ${TRANSITION_MS - 300}ms ease` }}>
-                A full brand team, built into Telegram
+              <span style={{ fontFamily: UI, fontSize: 13, color: contentColor, textShadow: textGlow }}>
+                A full X team, built into an Agent
               </span>
             </div>
 
@@ -233,19 +183,18 @@ export default function HeroSection() {
               style={{
                 fontFamily: SERIF,
                 fontWeight: 400,
-                lineHeight: 1.1,
+                lineHeight: 1.08,
                 letterSpacing: "-0.01em",
                 color: contentColor,
                 textShadow: textGlow,
-                transition: `color ${TRANSITION_MS - 300}ms ease`,
-                fontSize: "clamp(38px,7vw,88px)",
+                fontSize: "clamp(34px,5vw,58px)",
                 maxWidth: 780,
                 margin: 0,
               }}
             >
-              {persona.heading[0]}
+              {HERO_HEADING[0]}
               <br />
-              {persona.heading[1]}
+              {HERO_HEADING[1]}
             </h1>
 
             {/* Subtext */}
@@ -255,45 +204,18 @@ export default function HeroSection() {
                 fontSize: "clamp(14.5px,1.8vw,17px)",
                 lineHeight: 1.6,
                 color: contentColor,
-                opacity: persona.dark ? 0.85 : 0.9,
+                opacity: 0.9,
                 textShadow: textGlow,
-                transition: `color ${TRANSITION_MS - 300}ms ease`,
                 maxWidth: 500,
                 margin: "clamp(16px,2.2vw,20px) 0 0",
               }}
             >
-              {persona.subtext}
+              {HERO_SUBTEXT}
             </p>
 
             {/* CTA — standalone button, no input field */}
             <div style={{ marginTop: "clamp(26px,4vw,36px)" }}>
               <AppButton size="lg" />
-            </div>
-
-            {/* Persona switcher — always white, independent of the dark-mode content shift */}
-            <div className="flex items-center justify-center flex-wrap" style={{ gap: "clamp(18px,3vw,32px)", marginTop: "clamp(28px,4vw,40px)" }}>
-              {PERSONAS.map((p, i) => {
-                const isActive = i === active;
-                return (
-                  <button
-                    key={p.key}
-                    onClick={() => selectPersona(i)}
-                    style={{
-                      fontFamily: UI, fontSize: 13, fontWeight: 500,
-                      color: isActive ? "#fff" : "rgba(255,255,255,0.55)",
-                      textShadow: "0 1px 8px rgba(0,0,0,0.35)",
-                      background: "none", border: "none", cursor: "pointer",
-                      paddingBottom: 8,
-                      borderBottom: isActive ? "1.5px solid #fff" : "1.5px solid transparent",
-                      transition: "color 200ms ease, border-color 200ms ease, opacity 200ms ease",
-                    }}
-                    onMouseEnter={(e) => { if (!isActive) e.currentTarget.style.opacity = "0.8"; }}
-                    onMouseLeave={(e) => { if (!isActive) e.currentTarget.style.opacity = "1"; }}
-                  >
-                    {p.label}
-                  </button>
-                );
-              })}
             </div>
           </div>
         </div>

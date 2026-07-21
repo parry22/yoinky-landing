@@ -4,7 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import SmoothScroll from "./components/SmoothScroll";
 
-// Site-wide now: display serif for headings/logo, system-ui for body (set in globals.css).
+// Headings and decorative accents: Instrument Serif. Body: system-ui (globals.css).
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",

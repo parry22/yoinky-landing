@@ -154,6 +154,151 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ── landing sections: radar / chat / cards ── */
+@keyframes radarSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.radar-sweep {
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    rgba(255,255,255,0.02) 300deg,
+    rgba(255,255,255,0.22) 355deg,
+    rgba(255,255,255,0.5) 360deg
+  );
+  animation: radarSpin 4s linear infinite;
+}
+
+@keyframes blipPing {
+  0%   { box-shadow: 0 0 0 0 rgba(255,255,255,0.55); }
+  70%  { box-shadow: 0 0 0 12px rgba(255,255,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+}
+
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── single soft ring when a feed row is spotted ── */
+@keyframes pingOnce {
+  from { transform: scale(1); opacity: 0.75; }
+  to   { transform: scale(2.1); opacity: 0; }
+}
+
+/* ── feature carousel ── */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes sheenSweep {
+  0%        { background-position: 135% 0; }
+  42%, 100% { background-position: -135% 0; }
+}
+
+/* ── minimalist card micro-animations ── */
+@keyframes typingDot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.45; }
+  30%           { transform: translateY(-4px); opacity: 1; }
+}
+
+@keyframes waveBar {
+  0%, 100% { transform: scaleY(0.4); }
+  50%      { transform: scaleY(1); }
+}
+
+@keyframes sonarRing {
+  0%   { transform: scale(0.35); opacity: 0.55; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+@keyframes dayGlow {
+  0%, 100%  { background: rgba(255,255,255,0.18); box-shadow: 0 0 0 0 rgba(123,226,160,0); }
+  8%, 16%   { background: #7BE2A0; box-shadow: 0 0 10px rgba(123,226,160,0.85); }
+}
+
+/* one scan pass over a post being dissected */
+@keyframes scanOnce {
+  from { top: -12%; opacity: 1; }
+  85%  { opacity: 1; }
+  to   { top: 106%; opacity: 0; }
+}
+
+/* founding tag on the featured plan */
+@keyframes foundingPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,0,0,0.35); }
+  50%      { box-shadow: 0 0 0 6px rgba(0,0,0,0); }
+}
+
+/* breathing halo behind the global CTA button */
+@keyframes haloBreath {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%      { opacity: 1; transform: scale(1.1); }
+}
+
+
+
+@keyframes caretBlink {
+  0%, 49%  { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.agent-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,0.28) !important;
+  background: rgba(255,255,255,0.055) !important;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255,255,255,0.26) !important;
+}
+
+.pricing-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.4);
+}
+
+.persona-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255,255,255,0.26) !important;
+  background: rgba(255,255,255,0.05) !important;
+}
+
+/* ── ambient backdrop: drifting glows ── */
+@keyframes backdropDriftA {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(6vw, 4vh) scale(1.12); }
+}
+@keyframes backdropDriftB {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-5vw, 6vh) scale(0.94); }
+}
+.backdrop-glow-a { animation: backdropDriftA 26s ease-in-out infinite; }
+.backdrop-glow-b { animation: backdropDriftB 32s ease-in-out infinite; }
+.backdrop-glow-c { animation: backdropDriftA 38s ease-in-out infinite reverse; }
+.backdrop-glow-d { animation: backdropDriftB 30s ease-in-out infinite reverse; }
+
+.persona-row:hover .persona-name {
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .radar-sweep,
+  .hero-overlay-bob,
+  .backdrop-glow-a,
+  .backdrop-glow-b,
+  .backdrop-glow-c,
+  .backdrop-glow-d {
+    animation: none;
+  }
+}
+
 @keyframes featurePillIn {
   from { opacity: 0; transform: translateY(6px) scale(0.94); }
   to   { opacity: 1; transform: translateY(0)   scale(1); }

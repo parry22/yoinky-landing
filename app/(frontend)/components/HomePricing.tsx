@@ -1,6 +1,6 @@
 "use client";
 
-import { LINE, SERIF, TEXT, TEXT_FAINT, TEXT_SOFT, UI, APP_SIGNIN_URL } from "./theme";
+import { LINE, SERIF, TEXT, TEXT_FAINT, TEXT_SOFT, UI, signUpUrl } from "./theme";
 import SectionHead from "./SectionHead";
 import Reveal, { useInView } from "./Reveal";
 
@@ -36,7 +36,7 @@ const PLANS: Plan[] = [
       "Telegram agent access",
     ],
     cta: "Start your free trial",
-    href: APP_SIGNIN_URL,
+    href: signUpUrl("growth"),
   },
   {
     name: "Scale",
@@ -54,7 +54,7 @@ const PLANS: Plan[] = [
       "Priority support",
     ],
     cta: "Start your free trial",
-    href: APP_SIGNIN_URL,
+    href: signUpUrl("scale"),
     featured: true,
   },
   {
@@ -243,7 +243,7 @@ export default function HomePricing() {
       >
         <SectionHead
           kicker="Pricing"
-          title="Start your 14-day free"
+          title="Start your 7-day free"
           accent="trial today."
           sub="Every plan includes the radar, the memory core, and the agent. Upgrade when you need more reach."
         />

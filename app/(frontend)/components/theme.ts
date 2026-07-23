@@ -15,9 +15,16 @@ export const UI = "system-ui, sans-serif";
 // same servers (149.154.167.99) — and isn't caught by those blocks.
 export const TELEGRAM_URL = "https://telegram.me/yoinkyybot";
 
-// Root of the web app redirects to /login (Google auth) or /app if already signed in.
+// Root of the web app redirects to /login (Google or X) or /app if already signed in.
 export const APP_URL = "https://app.meetyoinky.com";
 
-// Skips the /login page and kicks straight into the Google OAuth flow —
-// lands back on /app once signed in.
-export const APP_SIGNIN_URL = "https://app.meetyoinky.com/api/auth/google/start";
+// Every "go to the app" CTA on the site lands on the app root, which sends a
+// new visitor to Clerk sign-in and an already-signed-in visitor straight to /app.
+export const APP_SIGNIN_URL = APP_URL;
+
+// Plan CTAs deep-link to Clerk sign-up, which starts the 7-day free trial. The
+// `?plan=` is forwarded into the app after sign-up so the chosen plan is recorded
+// on the trial and the in-app upgrade is preselected.
+export function signUpUrl(plan?: string): string {
+  return plan ? `${APP_URL}/sign-up?plan=${encodeURIComponent(plan)}` : `${APP_URL}/sign-up`;
+}

@@ -1,0 +1,37 @@
+name: Deploy
+
+# Auto-deploy the landing site to Vercel on every push to main (and on manual
+# dispatch). Skips cleanly until the repo secrets exist (no red X).
+#
+# REQUIRED repo secrets (Settings → Secrets and variables → Actions):
+#   VERCEL_TOKEN       — Vercel account token (vercel.com/account/tokens)
+#   VERCEL_ORG_ID      — from `.vercel/project.json` after `vercel link`, or the dashboard
+#   VERCEL_PROJECT_ID  — the landing project's id (distinct from the app's)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  web:
+    name: landing → Vercel
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy to Vercel (production)
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "::warning::VERCEL_TOKEN not set — skipping deploy. Add VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID repo secrets to enable auto-deploy."
+            exit 0
+          fi
+          npm i -g vercel@latest
+          vercel deploy --prod --yes --token="$VERCEL_TOKEN"

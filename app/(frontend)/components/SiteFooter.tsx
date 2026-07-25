@@ -1,9 +1,11 @@
-import { TEXT, TEXT_SOFT, LINE, UI } from "./theme";
+import { TEXT, TEXT_SOFT, UI } from "./theme";
 import AppButton from "./AppButton";
 
 export default function SiteFooter() {
+  // No borderTop here on purpose: PersonasSection (the section directly above)
+  // already closes itself with a divider, so adding one here drew a double line.
   return (
-    <footer className="px-6 md:px-12" style={{ borderTop: `1px solid ${LINE}`, marginTop: "clamp(56px,8vw,96px)" }}>
+    <footer className="px-6 md:px-12" style={{ marginTop: "clamp(56px,8vw,96px)" }}>
       <div
         className="flex flex-col md:flex-row md:items-center md:justify-between"
         style={{ padding: "clamp(20px,3vw,28px) 0", gap: 16 }}

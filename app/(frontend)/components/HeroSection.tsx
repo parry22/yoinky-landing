@@ -187,7 +187,13 @@ export default function HeroSection() {
                 letterSpacing: "-0.01em",
                 color: contentColor,
                 textShadow: textGlow,
-                fontSize: "clamp(34px,5vw,58px)",
+                // Mobile floor raised from 34px — the headline was reading small on
+                // phones, where it's the whole first impression. Measured against
+                // Instrument Serif (~0.356em/char): the longer forced line "The only
+                // agent you" is ~256px at 40px, which clears the ~280px available on
+                // a 320px phone, so the 40px floor never forces a third line. 11vw
+                // then scales it up through normal phone widths, capping at 58px.
+                fontSize: "clamp(40px,11vw,58px)",
                 maxWidth: 780,
                 margin: 0,
               }}

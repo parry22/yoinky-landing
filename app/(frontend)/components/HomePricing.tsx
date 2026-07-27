@@ -21,7 +21,7 @@ type Plan = {
 const PLANS: Plan[] = [
   {
     name: "Growth",
-    price: "$19",
+    price: "$9",
     was: "$29",
     priceNote: "Per month,\nBilled monthly",
     blurb: "For solo builders getting their voice back.",
@@ -40,13 +40,14 @@ const PLANS: Plan[] = [
   },
   {
     name: "Scale",
-    price: "$59",
+    price: "$49",
     was: "$79",
     priceNote: "Per month,\nBilled monthly",
     blurb: "For creators and founders growing seriously.",
     features: [
       "Everything in Growth",
-      "Buyer radar: unlimited buyer leads / month",
+      // 300, not "unlimited" — billing/entitlements.ts SCALE caps this at 300/mo.
+      "Buyer radar: 300 buyer leads / month",
       "Auto Agent: 90 posts / month, fully hands-off",
       "Unlimited scheduled posts",
       "Unlimited viral breakdowns",
@@ -174,7 +175,7 @@ function PlanCard({ plan, run, delay }: { plan: Plan; run: boolean; delay: numbe
           }}
         >
           <span style={{ width: 4, height: 4, borderRadius: "50%", background: featured ? "rgba(10,10,10,0.55)" : TEXT_SOFT, flexShrink: 0 }} />
-          Founding price, first 100 users
+          Early-bird price, first 50 users
         </div>
       )}
 

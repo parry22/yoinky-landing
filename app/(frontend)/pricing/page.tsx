@@ -5,7 +5,8 @@ import { BG } from "../components/theme";
 
 export const metadata = {
   title: "Pricing | Yoinky",
-  description: "Growth and Scale, with a 7-day free trial. Early-bird pricing for the first 50 users.",
+  description:
+    "Growth, Scale, or pay once for lifetime access with your own keys. 7-day free trial on the monthly plans.",
 };
 
 /**

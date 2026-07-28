@@ -4,8 +4,6 @@ import { LINE, SERIF, TEXT, TEXT_FAINT, TEXT_SOFT, UI, signUpUrl } from "./theme
 import SectionHead from "./SectionHead";
 import Reveal, { useInView } from "./Reveal";
 
-const CONTACT = "mailto:parry@meetyoinky.com";
-
 type Plan = {
   name: string;
   price: string;
@@ -16,12 +14,14 @@ type Plan = {
   cta: string;
   href: string;
   featured?: boolean;
+  /** Scarcity line, rendered under the price. */
+  limited?: string;
 };
 
 const PLANS: Plan[] = [
   {
     name: "Growth",
-    price: "$9",
+    price: "$15",
     was: "$29",
     priceNote: "Per month,\nBilled monthly",
     blurb: "For solo builders getting their voice back.",
@@ -56,24 +56,28 @@ const PLANS: Plan[] = [
     ],
     cta: "Start your free trial",
     href: signUpUrl("scale"),
-    featured: true,
   },
   {
-    name: "Enterprise",
-    price: "Custom",
-    priceNote: "Tailored to your team",
-    blurb: "For teams and agencies running many brands.",
+    name: "Lifetime",
+    price: "$99",
+    priceNote: "One payment,\nyours forever",
+    blurb: "Pay once, bring your own keys, and nothing is ever capped.",
     features: [
-      "Everything in Scale",
-      "Agency workspace: multiple brands",
-      "Multiple X accounts",
-      "Separate voice profile per brand",
-      "Shared memory + permissions",
-      "Dedicated account manager",
-      "Custom onboarding",
+      "Everything in Scale, uncapped",
+      "Unlimited Auto Agent posts, fully hands-off",
+      "Unlimited buyer radar leads",
+      "Unlimited scheduled posts + viral breakdowns",
+      // BYOK is the trade that makes an uncapped one-off price work: the user
+      // funds their own model + scraper usage, so there is no per-seat cost for
+      // caps to protect. Deliberately named as the benefit, not the setup task.
+      "BYOK — runs on your own keys, at cost",
+      "No subscription. No renewals. Ever.",
     ],
-    cta: "Contact our team",
-    href: CONTACT,
+    cta: "Get lifetime access",
+    href: signUpUrl("lifetime"),
+    featured: true,
+    // A deliberately time-boxed offer — the card has to say so out loud.
+    limited: "Limited time only — this deal goes away soon.",
   },
 ];
 
@@ -157,7 +161,7 @@ function PlanCard({ plan, run, delay }: { plan: Plan; run: boolean; delay: numbe
               animation: "foundingPulse 2.6s ease-in-out infinite",
             }}
           >
-            Most popular
+            {plan.limited ? "Best value" : "Most popular"}
           </span>
         )}
       </div>
@@ -167,6 +171,20 @@ function PlanCard({ plan, run, delay }: { plan: Plan; run: boolean; delay: numbe
       <div style={{ fontFamily: UI, fontSize: 12.5, lineHeight: 1.45, color: inkFaint, whiteSpace: "pre-line", marginTop: 8 }}>
         {plan.priceNote}
       </div>
+      {/* Scarcity. Deliberately the same weight as the price note rather than a
+        * shouty banner — it is a fact about the offer, not a countdown gimmick. */}
+      {plan.limited && (
+        <div
+          style={{
+            display: "flex", alignItems: "center", gap: 6, marginTop: 10,
+            fontFamily: UI, fontSize: 11.5, fontWeight: 600, letterSpacing: 0.2,
+            color: featured ? "#111" : TEXT,
+          }}
+        >
+          <span style={{ width: 4, height: 4, borderRadius: "50%", background: featured ? "#111" : TEXT, flexShrink: 0 }} />
+          {plan.limited}
+        </div>
+      )}
       {plan.was && (
         <div
           style={{
@@ -260,7 +278,10 @@ export default function HomePricing() {
           <div
             aria-hidden
             style={{
-              position: "absolute", left: "33%", top: "-6%", width: "34%", height: "112%",
+              // Anchored to the THIRD column now that Lifetime is the featured
+              // card — it sat over Scale (33%) and would otherwise be lighting
+              // up the wrong plan.
+              position: "absolute", left: "66%", top: "-6%", width: "34%", height: "112%",
               background: "radial-gradient(ellipse at 50% 40%, rgba(255,255,255,0.07) 0%, transparent 68%)",
               filter: "blur(24px)", pointerEvents: "none",
             }}

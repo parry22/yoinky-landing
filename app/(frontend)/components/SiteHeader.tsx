@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
 import { SERIF, UI } from "./theme";
 import AppButton from "./AppButton";
@@ -20,9 +21,9 @@ export default function SiteHeader() {
 
   return (
     <header className="relative flex items-center justify-between px-5 py-5 sm:px-8 sm:py-6">
-      <a href="/" style={{ fontFamily: SERIF, fontStyle: "italic", color: "#fff", fontSize: "clamp(20px,3vw,24px)", textDecoration: "none" }}>
+      <Link href="/" style={{ fontFamily: SERIF, fontStyle: "italic", color: "#fff", fontSize: "clamp(20px,3vw,24px)", textDecoration: "none" }}>
         Yoinky
-      </a>
+      </Link>
 
       {/* desktop nav pill */}
       <div className="hidden md:flex liquid-glass items-center gap-1 rounded-full px-2 py-1.5" style={{ backgroundColor: "rgba(255,255,255,0.06)" }}>

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities -- policy prose uses literal quotation marks for readability */
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 import { BG, TEXT, TEXT_SOFT, LINE, SERIF, UI } from "../components/theme";

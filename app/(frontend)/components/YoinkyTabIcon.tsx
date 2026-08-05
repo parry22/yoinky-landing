@@ -19,13 +19,19 @@ export default function YoinkyTabIcon({ isActive }: Props) {
       return;
     }
     if (isActive) {
-      setPhase("landing");
-      const t = setTimeout(() => setPhase("idle"), 600);
-      return () => clearTimeout(t);
+      const start = setTimeout(() => setPhase("landing"), 0);
+      const finish = setTimeout(() => setPhase("idle"), 600);
+      return () => {
+        clearTimeout(start);
+        clearTimeout(finish);
+      };
     } else {
-      setPhase("leaping");
-      const t = setTimeout(() => setPhase("hidden"), 280);
-      return () => clearTimeout(t);
+      const start = setTimeout(() => setPhase("leaping"), 0);
+      const finish = setTimeout(() => setPhase("hidden"), 280);
+      return () => {
+        clearTimeout(start);
+        clearTimeout(finish);
+      };
     }
   }, [isActive]);
 

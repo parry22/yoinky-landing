@@ -12,9 +12,9 @@ const NAV_LINKS = [
 ];
 
 // Single static hero: the founders scene. Heading + subtext are fixed.
-const HERO_HEADING: [string, string] = ["The only agent you", "need to grow on X"];
+const HERO_HEADING: [string, string] = ["The only agent you", "need for X and LinkedIn"];
 const HERO_SUBTEXT =
-  "Yoinky helps you grow your personal brand & business on X without putting much effort";
+  "Yoinky helps you grow your personal brand and business on X and LinkedIn without the busywork.";
 const HERO_VIDEO =
   "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_081127_0992a171-d3c6-4978-8213-0ec5df8b6d63.mp4";
 

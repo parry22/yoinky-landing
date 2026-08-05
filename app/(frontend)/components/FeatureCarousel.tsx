@@ -547,7 +547,7 @@ const FEATURES: { mock: React.ComponentType<MockProps>; title: string; body: str
   {
     mock: MockSchedule,
     title: "Scheduling",
-    body: "Your X posts, queued from the same chat at the hours that land.",
+    body: "Your X and LinkedIn posts, queued from the same chat at the hours that land.",
   },
   {
     mock: MockAuto,

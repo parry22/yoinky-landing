@@ -39,7 +39,7 @@ const PLANS: Plan[] = [
     priceNote: "Per month,\nBilled monthly",
     blurb: "For solo builders getting their voice back.",
     features: [
-      "1 connected X account",
+      "Connect X and LinkedIn",
       "Memory core: unlimited captures + resurfacing",
       "Buyer radar: 25 buyer leads / month",
       "Auto Agent: 5 posts / month, you approve each one",

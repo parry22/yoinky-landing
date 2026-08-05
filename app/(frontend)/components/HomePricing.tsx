@@ -42,7 +42,7 @@ const PLANS: Plan[] = [
       "Connect X and LinkedIn",
       "Memory core: unlimited captures + resurfacing",
       "Buyer radar: 25 buyer leads / month",
-      "Auto Agent: 5 posts / month, you approve each one",
+      "Auto Agent: 30 posts per platform / month, you approve each one",
       "Unlimited voice-matched drafts",
       "30 scheduled posts / month",
       "Daily viral breakdown + trend alerts, 2–3 a day",
@@ -62,7 +62,7 @@ const PLANS: Plan[] = [
       "Everything in Growth",
       // 300, not "unlimited" — billing/entitlements.ts SCALE caps this at 300/mo.
       "Buyer radar: 300 buyer leads / month",
-      "Auto Agent: 90 posts / month, fully hands-off",
+      "Auto Agent: 90 posts per platform / month, fully hands-off",
       "Unlimited scheduled posts",
       "Unlimited viral breakdowns",
       "Proactive resurfacing, 5 a week",

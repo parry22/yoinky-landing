@@ -6,7 +6,7 @@ import { BG } from "../components/theme";
 export const metadata = {
   title: "Pricing | Yoinky",
   description:
-    "Growth, Scale, or pay once for lifetime access with your own keys. 7-day free trial on the monthly plans.",
+    "Self-host Yoinky for free with your own API keys, or choose managed Growth or Scale with a 7-day trial.",
 };
 
 /**

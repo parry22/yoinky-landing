@@ -43,7 +43,7 @@ export default function WhyYoinky() {
     <section ref={ref} style={{ minHeight: "170vh", position: "relative", padding: "clamp(80px,11vw,140px) 24px" }}>
       <div style={{ position: "sticky", top: "17vh", maxWidth: 920, margin: "0 auto" }}>
         <SectionHead kicker="The thesis" title="Why we started" accent="Yoinky." />
-        <div style={{ display: "grid", gap: "0.82em", marginTop: "clamp(46px,6vw,74px)", textAlign: "center" }}>
+        <div style={{ display: "grid", gap: "1.18em", marginTop: "clamp(46px,6vw,74px)", textAlign: "center" }}>
           {LINES.map((line, index) => {
             const fill = Math.max(0, Math.min(1, progress * (LINES.length + 0.65) - index));
             return (

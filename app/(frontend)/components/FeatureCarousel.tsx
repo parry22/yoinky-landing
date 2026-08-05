@@ -197,6 +197,38 @@ function MockRadar({ active }: MockProps) {
   );
 }
 
+/** skills: the specialist capabilities light up as one coordinated system. */
+function MockSkills({ active }: MockProps) {
+  const step = useLoop(650, 6, active);
+  const skills = ["Hooks", "Research", "Voice", "Trends", "LinkedIn", "Timing"];
+  return (
+    <div style={{ width: "82%", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
+      {skills.map((skill, index) => {
+        const lit = active && index <= step;
+        return (
+          <div
+            key={skill}
+            style={{
+              padding: "12px 8px", borderRadius: 12, textAlign: "center",
+              border: `1px solid ${lit ? "rgba(255,255,255,0.52)" : "rgba(255,255,255,0.10)"}`,
+              background: lit ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.03)",
+              color: lit ? "#fff" : TEXT_FAINT,
+              fontFamily: UI, fontSize: 11,
+              transform: lit ? "translateY(-2px)" : "translateY(0)",
+              transition: "all 420ms cubic-bezier(0.22,1,0.36,1)",
+            }}
+          >
+            {skill}
+          </div>
+        );
+      })}
+      <div style={{ gridColumn: "1 / -1", textAlign: "center", marginTop: 7, fontFamily: SERIF, color: TEXT, fontSize: 18 }}>
+        20+ skills, one growth system
+      </div>
+    </div>
+  );
+}
+
 /** real-time trends: the radar, with trends lighting up on it as they break */
 const RADAR_TRENDS = [
   { t: "GPT-5.6", x: "64%", y: "26%" },
@@ -554,6 +586,11 @@ const FEATURES: { mock: React.ComponentType<MockProps>; title: string; body: str
     title: "Auto-agent mode",
     body: "Flip the switch and Yoinky posts for you, checked against your positions.",
   },
+  {
+    mock: MockSkills,
+    title: "Built for growth",
+    body: "More than 20 specialist skills work together to find stronger ideas and give every post a better chance to travel.",
+  },
 ];
 
 const COPIES = 3; // triple-render for the seamless infinite loop
@@ -624,7 +661,7 @@ export default function FeatureCarousel() {
             kicker="The full feature set"
             title="Everything your brand needs,"
             accent="in one place."
-            sub="Nine ways Yoinky finds the moment, writes the post, and ships it for you, all from a single Telegram chat."
+            sub="Yoinky finds the moment, writes the post, and helps you ship it across X and LinkedIn from one connected workspace."
           />
           <Reveal delay={200}>
             <div className="flex justify-center md:justify-end" style={{ gap: 10, marginTop: 20 }}>

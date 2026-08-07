@@ -85,6 +85,12 @@ export default buildConfig({
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URL,
+      // The hosted database session pool is shared with the Yoinky web app and
+      // worker. Payload's default pool can otherwise consume most of the 15
+      // available sessions while the marketing site is idle.
+      max: 2,
+      idleTimeoutMillis: 10_000,
+      connectionTimeoutMillis: 10_000,
     },
   }),
   typescript: {

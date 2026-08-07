@@ -15,7 +15,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   title: "Yoinky",
   description:
-    "An AI agent that actually makes real sense of your growing personal brand. Lives in Telegram.",
+    "The company narrative engine that turns founder insight, customer evidence and company activity into governed narratives and traceable content.",
 };
 
 export default function RootLayout({

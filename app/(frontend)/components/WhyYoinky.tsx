@@ -5,10 +5,10 @@ import { TEXT_FAINT, UI } from "./theme";
 import SectionHead from "./SectionHead";
 
 const LINES = [
-  "Growing a point of view should not mean becoming a full-time content machine.",
-  "Founders and operators already have the raw material: sharp takes, customer conversations, hard-won lessons, and work worth sharing.",
-  "What they lack is the time to catch the moment, turn it into a useful post, and keep showing up across X and LinkedIn.",
-  "Yoinky keeps the context, finds the signal, and helps ship the work without sanding off the person behind it.",
+  "Most companies do not have an idea problem. Their best thinking is trapped in calls, documents, launches, and the heads of a few experts.",
+  "By the time it reaches the market, the evidence is gone, the point of view is diluted, and every channel sounds like a different company.",
+  "Publishing more cannot fix a narrative nobody has decided, or claims nobody can trace back to a source.",
+  "Yoinky turns real company knowledge into governed intellectual property, a clear narrative, and content that compounds what the market knows you for.",
 ];
 
 export default function WhyYoinky() {

@@ -543,13 +543,13 @@ function MockAuto({ active }: MockProps) {
 const FEATURES: { mock: React.ComponentType<MockProps>; title: string; body: string }[] = [
   {
     mock: MockMemory,
-    title: "Memory core",
-    body: "Every post and stray thought is kept. The right one comes back when it matters.",
+    title: "Company knowledge",
+    body: "Founder interviews and customer evidence become traceable insights, claims, proof and stories.",
   },
   {
     mock: MockViral,
-    title: "Viral impressions",
-    body: "The post blowing up in your niche today, surfaced with the numbers to prove it.",
+    title: "Narrative architecture",
+    body: "Build the category thesis, point of view, promise and territories your company can repeat with conviction.",
   },
   {
     mock: MockRadar,
@@ -563,13 +563,13 @@ const FEATURES: { mock: React.ComponentType<MockProps>; title: string; body: str
   },
   {
     mock: MockBreakdown,
-    title: "Viral breakdowns",
-    body: "Why it worked, in numbers. The pattern becomes your next draft.",
+    title: "Grounded briefs",
+    body: "Every asset starts with an audience, belief shift, approved insight, proof and strategic job.",
   },
   {
     mock: MockProactive,
-    title: "Proactive agent",
-    body: "Yoinky DMs you first: what to post, when to post, and why now.",
+    title: "Editorial governance",
+    body: "Claims, confidential sources and narrative alignment are checked before content leaves the workspace.",
   },
   {
     mock: MockVoice,
@@ -659,9 +659,9 @@ export default function FeatureCarousel() {
           <SectionHead
             align="center"
             kicker="The full feature set"
-            title="Everything your brand needs,"
+            title="Everything your narrative needs,"
             accent="in one place."
-            sub="Yoinky finds the moment, writes the post, and helps you ship it across X and LinkedIn from one connected workspace."
+            sub="Capture what the company knows, decide what it stands for, and turn both into traceable work across X and LinkedIn."
           />
           <Reveal delay={200}>
             <div className="flex justify-center md:justify-end" style={{ gap: 10, marginTop: 20 }}>

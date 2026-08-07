@@ -5,6 +5,7 @@ import FeatureCarousel from "./components/FeatureCarousel";
 import HomePricing from "./components/HomePricing";
 import PersonasSection from "./components/PersonasSection";
 import SiteFooter from "./components/SiteFooter";
+import NarrativeEngineSection from "./components/NarrativeEngineSection";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <Backdrop />
         <div style={{ position: "relative", zIndex: 1 }}>
           <WhyYoinky />
+          <NarrativeEngineSection />
           <FeatureCarousel />
           <HomePricing />
           <PersonasSection />

@@ -22,9 +22,18 @@ async function getPost(slug: string) {
 }
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config });
-  const { docs } = await payload.find({ collection: "posts", limit: 1000, select: { slug: true } });
-  return docs.map((p) => ({ slug: p.slug as string }));
+  // A marketing build must not depend on a live CMS database. When Payload is
+  // not configured yet (common on a fresh self-host) or temporarily unavailable,
+  // Next can still build and resolve blog slugs on demand once the CMS is ready.
+  if (!process.env.PAYLOAD_SECRET || !process.env.DATABASE_URL) return [];
+  try {
+    const payload = await getPayload({ config });
+    const { docs } = await payload.find({ collection: "posts", limit: 1000, select: { slug: true } });
+    return docs.map((p) => ({ slug: p.slug as string }));
+  } catch {
+    console.warn("CMS unavailable during build; blog pages will render on demand.");
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
@@ -153,7 +162,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             Try Yoinky.
           </h3>
           <p style={{ fontFamily: UI, fontSize: 14, color: TEXT_SOFT, margin: "0 0 20px", lineHeight: 1.6, maxWidth: 440, letterSpacing: 0 }}>
-            An AI agent that actually makes real sense of your growing personal brand.
+            Turn company knowledge into a narrative your team can use, publish and improve.
           </p>
           <AppButton />
         </div>

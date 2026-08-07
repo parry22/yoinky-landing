@@ -4,7 +4,7 @@ import SiteFooter from "../components/SiteFooter";
 import { BG, TEXT, TEXT_SOFT, LINE, SERIF, UI } from "../components/theme";
 
 export const metadata = {
-  title: "Privacy Policy — Yoinky",
+  title: "Privacy Policy - Yoinky",
   description: "How Yoinky collects, uses, stores, and protects your information.",
 };
 
@@ -39,7 +39,7 @@ export default function PrivacyPage() {
 
         {/* Intro */}
         <p style={S.p}>
-          This Privacy Policy explains what information Yoinky ("we," "us," or "our") collects when you talk to the Yoinky bot on Telegram, connect your public accounts, or use the browser extension (together, the "Service"), how we use it, and the choices and controls you have over it.
+          This Privacy Policy explains what information Yoinky ("we," "us," or "our") collects when you use a Yoinky workspace, talk to the Yoinky bot on Telegram, upload company knowledge, or connect publishing accounts (together, the "Service"), how we use it, and the choices and controls you have over it.
         </p>
         <p style={S.p}>
           By starting a conversation with Yoinky or connecting an account, you acknowledge that you have read and understood this Policy. If you do not agree, please stop using the Service.
@@ -52,25 +52,25 @@ export default function PrivacyPage() {
         <ul style={S.ul}>
           <li style={S.li}>Text messages you send to the Yoinky bot on Telegram.</li>
           <li style={S.li}>Your Telegram account identifiers (username, user ID) needed to run the bot conversation.</li>
-          <li style={S.li}>Highlights and links you save with the browser extension.</li>
+          <li style={S.li}>Documents, transcripts, notes, links, and other sources you add to a workspace.</li>
           <li style={S.li}>Any feedback, bug reports, or support messages you send us.</li>
         </ul>
 
         <h3 style={S.h3}>1.2 Your connected public history</h3>
         <p style={S.p}>
-          When you connect your X or LinkedIn account, you authorise Yoinky to read your public posts, profile information, and public engagement on that platform. This is how Yoinky builds your brand diagnosis and voice profile. We only request access to public, already-visible content — we do not request access to your private messages on those platforms, and connecting an account never lets Yoinky post on it without your say.
+          When you connect your X or LinkedIn account, you authorise Yoinky to read the public posts, profile information, and engagement permitted by that platform. This helps Yoinky learn voice, evidence, and content performance. We do not request access to private messages on those platforms. Publishing requires the permissions and approval rules configured for your workspace.
         </p>
 
-        <h3 style={S.h3}>1.3 Your memory layer</h3>
-        <p style={S.p}>From everything above, Yoinky builds and stores a personal memory layer that may include:</p>
+        <h3 style={S.h3}>1.3 Your company knowledge layer</h3>
+        <p style={S.p}>From the material above, Yoinky builds and stores a workspace knowledge layer that may include:</p>
         <ul style={S.ul}>
-          <li style={S.li}>Your brand diagnosis: intellectual fingerprint, voice signature, consistency notes, and unsaid patterns.</li>
-          <li style={S.li}>Individual ideas and fragments extracted from your messages and saved highlights.</li>
-          <li style={S.li}>Drafts, repurposed posts, and pitches generated on your behalf.</li>
-          <li style={S.li}>Your reactions to resurfaced ideas (useful, not now, forget this), which shape what gets surfaced going forward.</li>
+          <li style={S.li}>Insights, evidence, claims, quotes, objections, themes, and other structured objects extracted from approved sources.</li>
+          <li style={S.li}>Narrative architecture, audiences, messaging, territories, and editorial decisions.</li>
+          <li style={S.li}>Briefs, drafts, revisions, approvals, distribution records, and source lineage.</li>
+          <li style={S.li}>Workspace permissions and member actions needed for access control and audit history.</li>
         </ul>
         <p style={S.p}>
-          All memory entries are tagged with a timestamp and source. You can ask the bot to show you the full contents of your memory layer at any time.
+          Knowledge objects retain their source and permission context. Workspace owners and authorised members can review or remove material through the controls available in the Service.
         </p>
 
         <h3 style={S.h3}>1.4 Usage and diagnostic data</h3>
@@ -84,11 +84,11 @@ export default function PrivacyPage() {
         {/* 2 */}
         <h2 style={S.h2}>2. How We Use Your Information</h2>
         <ul style={S.ul}>
-          <li style={S.li}><strong style={S.strong}>Provide the Service</strong> — build and maintain your memory layer, generate your brand diagnosis, and produce drafts, resurfaced ideas, and moment matches.</li>
-          <li style={S.li}><strong style={S.strong}>Improve the Service</strong> — analyse aggregated, anonymised patterns to improve the accuracy of diagnosis and draft quality.</li>
-          <li style={S.li}><strong style={S.strong}>AI inference</strong> — send relevant context to AI model APIs to produce your diagnosis, drafts, and suggestions (see Section 5).</li>
-          <li style={S.li}><strong style={S.strong}>Communications</strong> — send you product updates, beta changelogs, and respond to support requests.</li>
-          <li style={S.li}><strong style={S.strong}>Safety and legal compliance</strong> — detect abuse, enforce our Terms of Service, and comply with applicable laws.</li>
+          <li style={S.li}><strong style={S.strong}>Provide the Service</strong> - structure permissioned knowledge, maintain narrative systems, and produce grounded briefs and drafts.</li>
+          <li style={S.li}><strong style={S.strong}>Improve the Service</strong> - analyse aggregated, anonymised patterns to improve extraction and draft quality.</li>
+          <li style={S.li}><strong style={S.strong}>AI inference</strong> - send relevant context to AI model APIs to extract knowledge, build narratives, and generate or review content (see Section 5).</li>
+          <li style={S.li}><strong style={S.strong}>Communications</strong> - send product updates and respond to support requests.</li>
+          <li style={S.li}><strong style={S.strong}>Safety and legal compliance</strong> - enforce permissions, detect abuse, enforce our Terms of Service, and comply with applicable laws.</li>
         </ul>
         <p style={S.p}>
           We do <strong style={S.strong}>not</strong> use your personal data to train shared AI models that are exposed to other users, without your explicit, separately-obtained consent.
@@ -99,7 +99,7 @@ export default function PrivacyPage() {
 
         <h3 style={S.h3}>3.1 Where data is stored</h3>
         <p style={S.p}>
-          Your memory layer is stored on our secure cloud infrastructure, encrypted at rest (AES-256) and in transit (TLS 1.2+). We do not store copies of your data on your personal devices beyond what Telegram itself caches locally, which is governed by Telegram's own policies.
+          Your hosted workspace data is stored on our cloud infrastructure and protected in transit. Telegram and connected platforms may separately cache data under their own policies. Self-hosted installations are operated by the person or organisation deploying them and are outside our hosted data controls.
         </p>
 
         <h3 style={S.h3}>3.2 Security measures</h3>
@@ -109,7 +109,7 @@ export default function PrivacyPage() {
 
         <h3 style={S.h3}>3.3 Retention periods</h3>
         <ul style={S.ul}>
-          <li style={S.li}><strong style={S.strong}>Memory layer entries</strong>: retained until you delete them or close your account.</li>
+          <li style={S.li}><strong style={S.strong}>Workspace knowledge and content</strong>: retained until an authorised user deletes it or the workspace is closed.</li>
           <li style={S.li}><strong style={S.strong}>Account data</strong>: deleted within 30 days of account closure.</li>
           <li style={S.li}><strong style={S.strong}>Diagnostic logs</strong>: retained for up to 12 months for debugging, then deleted.</li>
           <li style={S.li}><strong style={S.strong}>Anonymised aggregate statistics</strong>: may be retained indefinitely.</li>
@@ -118,20 +118,20 @@ export default function PrivacyPage() {
         {/* 4 */}
         <h2 style={S.h2}>4. Your Controls</h2>
         <p style={S.p}>
-          Transparency and control are core to Yoinky. By messaging the bot, you can:
+          Transparency and control are core to Yoinky. Depending on your workspace role, the app and bot let you:
         </p>
         <ul style={S.ul}>
-          <li style={S.li}><span style={S.pill}>View</span> every entry in your memory layer, including source, timestamp, and content.</li>
-          <li style={S.li}><span style={S.pill}>Delete</span> any single memory entry, permanently, in one action.</li>
-          <li style={S.li}><span style={S.pill}>Pause</span> resurfacing and moment matching without disconnecting your accounts.</li>
-          <li style={S.li}><span style={S.pill}>Export</span> your full memory dataset for portability, anytime.</li>
-          <li style={S.li}><span style={S.pill}>Delete all</span> to wipe your entire memory layer and associated data from our systems.</li>
+          <li style={S.li}><span style={S.pill}>View</span> knowledge objects with their source, permission, and review state.</li>
+          <li style={S.li}><span style={S.pill}>Review</span> proposed insights and claims before they become approved company knowledge.</li>
+          <li style={S.li}><span style={S.pill}>Control</span> workspace membership, source permissions, and publication approvals.</li>
+          <li style={S.li}><span style={S.pill}>Disconnect</span> connected publishing platforms.</li>
+          <li style={S.li}><span style={S.pill}>Delete</span> sources, content, or an account subject to workspace role and retention requirements.</li>
         </ul>
 
         {/* 5 */}
         <h2 style={S.h2}>5. AI Processing and Third-Party Model Providers</h2>
         <p style={S.p}>
-          Yoinky sends relevant portions of your memory layer to AI model APIs (such as those provided by Anthropic, OpenAI, or similar providers) to generate your diagnosis, drafts, and suggestions. When doing so:
+          Yoinky sends relevant portions of permissioned workspace context to configured AI model APIs to extract knowledge, build narrative architecture, and generate or review content. When doing so:
         </p>
         <ul style={S.ul}>
           <li style={S.li}>We send the minimum context necessary for each inference request.</li>
@@ -143,23 +143,23 @@ export default function PrivacyPage() {
         <h2 style={S.h2}>6. Sharing and Disclosure</h2>
         <p style={S.p}>We do not sell your personal information. We may share it in the following limited circumstances:</p>
         <ul style={S.ul}>
-          <li style={S.li}><strong style={S.strong}>Service providers</strong> — hosting, analytics, and AI inference providers who process data on our behalf, bound by contractual data protection obligations.</li>
-          <li style={S.li}><strong style={S.strong}>Connected platforms</strong> — only the data necessary to perform an action you have explicitly approved (e.g. publishing a reply you approved back to X). We do not share your full memory layer with X, LinkedIn, or Telegram.</li>
-          <li style={S.li}><strong style={S.strong}>Legal requirements</strong> — if required by applicable law, court order, or governmental authority, after taking reasonable steps to notify you where legally permitted.</li>
-          <li style={S.li}><strong style={S.strong}>Business transfer</strong> — if Yoinky is acquired or its assets transferred, your data may pass to the successor entity. We will provide notice before your data becomes subject to a materially different privacy policy, and you may delete your account before the transfer takes effect.</li>
-          <li style={S.li}><strong style={S.strong}>With your consent</strong> — for any other purpose, with your prior explicit consent.</li>
+          <li style={S.li}><strong style={S.strong}>Service providers</strong> - hosting, analytics, and AI inference providers who process data on our behalf.</li>
+          <li style={S.li}><strong style={S.strong}>Connected platforms</strong> - only the data necessary to perform an authorised action. We do not send your full workspace knowledge layer to X, LinkedIn, or Telegram.</li>
+          <li style={S.li}><strong style={S.strong}>Legal requirements</strong> - if required by applicable law, court order, or governmental authority, after taking reasonable steps to notify you where legally permitted.</li>
+          <li style={S.li}><strong style={S.strong}>Business transfer</strong> - if Yoinky is acquired or its assets transferred, your data may pass to the successor entity. We will provide notice before your data becomes subject to a materially different privacy policy.</li>
+          <li style={S.li}><strong style={S.strong}>With your consent</strong> - for any other purpose, with your prior explicit consent.</li>
         </ul>
 
         {/* 7 */}
         <h2 style={S.h2}>7. Connected Platforms</h2>
         <p style={S.p}>
-          Yoinky connects to Telegram (to talk to you), and to X and LinkedIn (to read your public history, with your authorisation). When you connect an account:
+          Yoinky connects to Telegram, X, LinkedIn, and configured knowledge or model providers. When you connect an account:
         </p>
         <ul style={S.ul}>
           <li style={S.li}>You explicitly authorise access via that platform's own OAuth flow.</li>
-          <li style={S.li}>We access only the scopes necessary for diagnosis and drafting — public content, not private messages.</li>
+          <li style={S.li}>We request only the scopes necessary for the features you enable.</li>
           <li style={S.li}>Your use of Telegram, X, and LinkedIn is separately governed by their own terms and privacy policies.</li>
-          <li style={S.li}>You can disconnect any platform at any time by messaging the bot. Disconnecting stops future data capture from that platform but does not automatically delete memory entries already derived from it — use your Controls (Section 4) for that.</li>
+          <li style={S.li}>Authorised users can disconnect a platform. Disconnecting stops future access but does not automatically delete knowledge or content already derived from it. Use your Controls in Section 4 for that.</li>
         </ul>
 
         {/* 8 */}
@@ -197,7 +197,7 @@ export default function PrivacyPage() {
         {/* 11 */}
         <h2 style={S.h2}>11. Changes to This Policy</h2>
         <p style={S.p}>
-          We may update this Privacy Policy from time to time. For material changes — changes that significantly affect your rights or our data practices — we will notify you by email (if you have provided one) or by a message from the bot at least 14 days before the change takes effect. Your continued use of the Service after the effective date of any update constitutes your acceptance of the revised Policy.
+          We may update this Privacy Policy from time to time. For material changes that significantly affect your rights or our data practices, we will notify you by email (if you have provided one) or by a message from the bot at least 14 days before the change takes effect. Your continued use of the Service after the effective date of any update constitutes your acceptance of the revised Policy.
         </p>
 
         {/* 12 */}
@@ -205,7 +205,7 @@ export default function PrivacyPage() {
         <p style={S.p}>For privacy questions, data requests, or to exercise your rights:</p>
         <div style={S.note}>
           Email: <a href="mailto:parry@meetyoinky.com" style={{ color: TEXT, fontWeight: 600, textDecoration: "none" }}>parry@meetyoinky.com</a><br />
-          Subject line: "Privacy Request — [your name]"
+          Subject line: "Privacy Request - [your name]"
         </div>
 
       </main>

@@ -37,9 +37,10 @@ const PLANS: Plan[] = [
     price: "$15",
     was: "$29",
     priceNote: "Per month,\nBilled monthly",
-    blurb: "For solo builders getting their voice back.",
+    blurb: "For founders and small teams building a trusted narrative.",
     features: [
       "Connect X and LinkedIn",
+      "Company workspace with knowledge, narrative, briefs, and review",
       "Memory core: unlimited captures + resurfacing",
       "Buyer radar: 25 buyer leads / month",
       "Auto Agent: 30 posts per platform / month, you approve each one",
@@ -57,7 +58,7 @@ const PLANS: Plan[] = [
     price: "$49",
     was: "$79",
     priceNote: "Per month,\nBilled monthly",
-    blurb: "For creators and founders growing seriously.",
+    blurb: "For teams operating a narrative across more channels and experts.",
     features: [
       "Everything in Growth",
       // 300, not "unlimited" — billing/entitlements.ts SCALE caps this at 300/mo.

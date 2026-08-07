@@ -9,38 +9,38 @@ import Reveal from "./Reveal";
 const PERSONAS = [
   {
     name: "Founders",
-    pain: "Your build in public went quiet.",
+    pain: "The company still depends on your head.",
     useCases: [
-      "Buyer radar flags the posts looking for a tool like yours the hour they go up, so you reply first, not last",
-      "Release notes become story arcs: drafted in your voice, scheduled for the right hour, posted",
-      "Auto-agent keeps you visible straight through launch-week chaos, when you'd normally vanish",
+      "Founder interviews become reviewed insights, claims, proof and stories with the original source attached",
+      "One active narrative gives every launch, post and company voice the same strategic direction",
+      "LinkedIn drafts stay in your voice without inventing proof or sanding off the conviction",
     ],
   },
   {
-    name: "Creators",
-    pain: "You already had the idea.",
+    name: "Marketing teams",
+    pain: "More content is not a strategy.",
     useCases: [
-      "Your best old posts resurface exactly when they become relevant again, with the reasoning attached",
-      "Same-day trend drafts, so you're early to the conversation instead of quote-tweeting it late",
-      "A daily viral breakdown shows you the pattern behind the one post that beat the algorithm today",
+      "Content briefs connect every asset to an audience question, approved insight and measurable belief shift",
+      "Claim governance keeps unsupported or confidential material out of public drafts",
+      "Performance feeds back into territories and knowledge, so the narrative improves instead of merely producing more",
     ],
   },
   {
-    name: "Consultants",
-    pain: "Nobody can find your expertise.",
+    name: "Expert teams",
+    pain: "The best thinking disappears after the call.",
     useCases: [
-      "People describing your exact problem get flagged before your competitors even open the app",
-      "Authority drafts that never contradict your stated positions, because the consistency check runs first",
-      "Your whole X presence handled from one chat: drafts, replies, scheduling, zero context switching",
+      "Each expert keeps a distinct voice profile instead of being blended into generic company language",
+      "Customer language and hard-won lessons become reusable intellectual property with provenance",
+      "The review inbox lets experts approve meaning without becoming full-time writers",
     ],
   },
   {
-    name: "Everyone",
-    pain: "You don't really have a brand online.",
+    name: "Agencies",
+    pain: "Client context keeps resetting.",
     useCases: [
-      "A throughline gets pulled out of your scattered posts: the version of you that was already there",
-      "Told what to post and when, so the blank page never gets a vote",
-      "Impressions grow on autopilot, and everything still reads like you, never like a model",
+      "Separate workspaces keep client knowledge, permissions, experts and claims safely isolated",
+      "A repeatable operating system replaces scattered docs, prompts and approval threads",
+      "Full lineage shows exactly which source, brief and review produced every scheduled asset",
     ],
   },
 ];
@@ -59,9 +59,9 @@ export default function PersonasSection() {
       >
         <SectionHead
           kicker="Who it's for"
-          title="Built for anyone the timeline"
-          accent="has been ignoring."
-          sub="Four kinds of people open Yoinky every morning. Same agent, same radar. A different week for each of them."
+          title="Built for teams with more expertise"
+          accent="than market memory."
+          sub="One system for the people creating company knowledge and the people responsible for turning it into demand."
         />
 
         <div style={{ marginTop: "clamp(40px,5vw,56px)" }}>

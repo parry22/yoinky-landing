@@ -12,9 +12,9 @@ const NAV_LINKS = [
 ];
 
 // Single static hero: the founders scene. Heading + subtext are fixed.
-const HERO_HEADING: [string, string] = ["The only agent you", "need for X and LinkedIn"];
+const HERO_HEADING: [string, string] = ["Turn company knowledge", "into market authority"];
 const HERO_SUBTEXT =
-  "Yoinky helps you grow your personal brand and business on X and LinkedIn without the busywork.";
+  "Yoinky turns founder insight, customer evidence and company activity into a governed narrative and content your market remembers.";
 const HERO_VIDEO =
   "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_081127_0992a171-d3c6-4978-8213-0ec5df8b6d63.mp4";
 
@@ -175,7 +175,7 @@ export default function HeroSection() {
               style={{ padding: "8px 18px", marginBottom: "clamp(20px,3vw,28px)", backgroundColor: glassTint }}
             >
               <span style={{ fontFamily: UI, fontSize: 13, color: contentColor, textShadow: textGlow }}>
-                A full X team, built into an Agent
+                The company narrative engine
               </span>
             </div>
 

@@ -8,19 +8,25 @@ import { BG, TEXT, TEXT_SOFT, LINE, SERIF, UI } from "../components/theme";
 
 export const metadata = {
   title: "Blog | Yoinky",
-  description: "Thoughts on memory, voice, and building a personal brand that actually sounds like you.",
+  description: "Notes on company knowledge, narrative systems and content operations.",
 };
 
 export const revalidate = 60;
 
 async function getPosts() {
-  const payload = await getPayload({ config });
-  const { docs } = await payload.find({
-    collection: "posts",
-    limit: 100,
-    sort: "-publishedAt",
-  });
-  return docs;
+  if (!process.env.PAYLOAD_SECRET || !process.env.DATABASE_URL) return [];
+  try {
+    const payload = await getPayload({ config });
+    const { docs } = await payload.find({
+      collection: "posts",
+      limit: 100,
+      sort: "-publishedAt",
+    });
+    return docs;
+  } catch {
+    console.warn("CMS unavailable while rendering the blog index.");
+    return [];
+  }
 }
 
 export default async function BlogPage() {
@@ -43,7 +49,7 @@ export default async function BlogPage() {
           Blog
         </h1>
         <p style={{ fontFamily: UI, fontSize: "clamp(15px,1.6vw,17px)", lineHeight: 1.55, color: TEXT_SOFT, margin: "clamp(14px,2vw,18px) 0 0", maxWidth: 460, letterSpacing: 0 }}>
-          Notes on memory, voice, and building a brand people actually recognize.
+          Notes on turning company knowledge into a narrative people recognize and trust.
         </p>
       </div>
 

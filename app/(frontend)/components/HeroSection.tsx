@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
 import { SERIF, UI } from "./theme";
@@ -12,19 +12,32 @@ const NAV_LINKS = [
 ];
 
 // Single static hero: the founders scene. Heading + subtext are fixed.
-const HERO_HEADING: [string, string] = ["Turn company knowledge", "into market authority"];
+const HERO_HEADING: [string, string] = ["Turn scattered knowledge", "into publish-ready content"];
 const HERO_SUBTEXT =
-  "Yoinky turns founder insight, customer evidence and company activity into a governed narrative and content your market remembers.";
+  "Yoinky turns everything a company knows into content and distribution.";
 const HERO_VIDEO =
   "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_081127_0992a171-d3c6-4978-8213-0ec5df8b6d63.mp4";
 
 export default function HeroSection() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    const startVideo = () => video.play().catch(() => undefined);
+    startVideo();
+    video.addEventListener("canplay", startVideo, { once: true });
+    return () => video.removeEventListener("canplay", startVideo);
+  }, []);
 
   const contentColor = "#FFFFFF";
   // Subtle lift so text stays legible over whatever the video is doing underneath.
@@ -36,25 +49,18 @@ export default function HeroSection() {
 
       {/* ── Background video layer ── */}
       <video
+        ref={videoRef}
         src={HERO_VIDEO}
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
+        disablePictureInPicture
+        controlsList="nodownload noplaybackrate"
         aria-hidden
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
         style={{ zIndex: 0 }}
-      />
-
-      {/* ── Transparent PNG overlay, gentle bob ── */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="https://soft-zoom-63098134.figma.site/_assets/v11/0b4a435b2df2747593c43d7a1c9b4578f7d8d90c.png"
-        alt=""
-        aria-hidden
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none hero-overlay-bob"
-        style={{ zIndex: 1 }}
       />
 
       {/* ── Content layer ── */}
@@ -126,7 +132,7 @@ export default function HeroSection() {
             transition: "opacity 500ms cubic-bezier(0.4,0,0.2,1)",
           }}
         >
-          {/* dedicated close button — always reachable, independent of the hamburger underneath */}
+          {/* Dedicated close button, always reachable independently of the hamburger underneath. */}
           <button
             onClick={() => setMenuOpen(false)}
             aria-label="Close menu"
@@ -175,7 +181,7 @@ export default function HeroSection() {
               style={{ padding: "8px 18px", marginBottom: "clamp(20px,3vw,28px)", backgroundColor: glassTint }}
             >
               <span style={{ fontFamily: UI, fontSize: 13, color: contentColor, textShadow: textGlow }}>
-                The company narrative engine
+                For founder-led and marketing teams
               </span>
             </div>
 
@@ -183,12 +189,12 @@ export default function HeroSection() {
             <h1
               style={{
                 fontFamily: SERIF,
-                fontWeight: 400,
+                fontWeight: 300,
                 lineHeight: 1.08,
-                letterSpacing: "-0.01em",
+                letterSpacing: "0.015em",
                 color: contentColor,
                 textShadow: textGlow,
-                // Mobile floor raised from 34px — the headline was reading small on
+                // Mobile floor raised from 34px because the headline was reading small on
                 // phones, where it's the whole first impression. Measured against
                 // Instrument Serif (~0.356em/char): the longer forced line "The only
                 // agent you" is ~256px at 40px, which clears the ~280px available on
@@ -220,13 +226,14 @@ export default function HeroSection() {
               {HERO_SUBTEXT}
             </p>
 
-            {/* CTA — standalone button, no input field */}
+            {/* CTA is a standalone button, with no input field. */}
             <div style={{ marginTop: "clamp(26px,4vw,36px)" }}>
               <AppButton size="lg" />
             </div>
           </div>
         </div>
       </div>
+      <div className="hero-section-blend" aria-hidden="true" />
     </section>
   );
 }

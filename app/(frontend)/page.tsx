@@ -1,11 +1,11 @@
 import HeroSection from "./components/HeroSection";
-import WhyYoinky from "./components/WhyYoinky";
 import Backdrop from "./components/Backdrop";
-import FeatureCarousel from "./components/FeatureCarousel";
-import HomePricing from "./components/HomePricing";
-import PersonasSection from "./components/PersonasSection";
+import ProductBentoSection from "./components/ProductBentoSection";
+import WorkflowExplorerSection from "./components/WorkflowExplorerSection";
+import ContentTickerSection from "./components/ContentTickerSection";
+import PricingPlansSection from "./components/PricingPlansSection";
+import FaqSection from "./components/FaqSection";
 import SiteFooter from "./components/SiteFooter";
-import NarrativeEngineSection from "./components/NarrativeEngineSection";
 
 export default function Home() {
   return (
@@ -14,12 +14,13 @@ export default function Home() {
       <div style={{ position: "relative", background: "#0A0A0A" }}>
         <Backdrop />
         <div style={{ position: "relative", zIndex: 1 }}>
-          <WhyYoinky />
-          <NarrativeEngineSection />
-          <FeatureCarousel />
-          <HomePricing />
-          <PersonasSection />
+          <ProductBentoSection />
+          <WorkflowExplorerSection />
+          <PricingPlansSection />
+          <FaqSection />
+          <ContentTickerSection />
           <SiteFooter />
+          <div aria-hidden="true" style={{ height: "clamp(64px, 8vw, 128px)" }} />
         </div>
       </div>
     </>

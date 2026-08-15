@@ -1,15 +1,25 @@
 import type { Metadata } from "next";
-import { Instrument_Serif } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import SmoothScroll from "./components/SmoothScroll";
 
-// Headings and decorative accents: Instrument Serif. Body: system-ui (globals.css).
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-instrument-serif",
+const denton = localFont({
+  src: [
+    { path: "../../public/fonts/Denton-Light.otf", weight: "300", style: "normal" },
+    { path: "../../public/fonts/Denton-Regular.otf", weight: "400", style: "normal" },
+    { path: "../../public/fonts/Denton-Medium.otf", weight: "500", style: "normal" },
+    { path: "../../public/fonts/Denton-Bold.otf", weight: "700", style: "normal" },
+  ],
+  variable: "--font-denton",
+  display: "swap",
+});
+
+const delight = localFont({
+  src: "../../public/fonts/Delight-Variable.ttf",
+  weight: "100 900",
+  variable: "--font-delight",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${instrumentSerif.variable} h-full`}>
+    <html lang="en" className={`${denton.variable} ${delight.variable} h-full`}>
       <body className="min-h-full flex flex-col" suppressHydrationWarning><SmoothScroll>{children}</SmoothScroll></body>
       <Script
         src="https://analytics.ahrefs.com/analytics.js"

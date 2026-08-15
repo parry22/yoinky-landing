@@ -1,27 +1,23 @@
 import SiteHeader from "../components/SiteHeader";
-import HomePricing from "../components/HomePricing";
+import PricingPlansSection from "../components/PricingPlansSection";
 import SiteFooter from "../components/SiteFooter";
 import { BG } from "../components/theme";
 
 export const metadata = {
   title: "Pricing | Yoinky",
   description:
-    "Self-host Yoinky for free with your own API keys, or choose managed Growth or Scale with a 7-day trial.",
+    "Choose the Yoinky workspace that fits your company narrative operation.",
 };
 
 /**
- * This route used to render <PricingSection>, which still advertised "$0 during
- * beta — paid plans come later". That stopped being true the moment checkout went
- * live, and the page is indexable, so a prospect could land on a $0 promise one
- * click from a $9 card. It now renders the same plan cards as the homepage, so
- * the site has exactly one source of price truth.
+ * Pricing has one shared source of truth across the homepage and this route.
  */
 export default function PricingPage() {
   return (
     <div style={{ backgroundColor: BG, minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <SiteHeader />
       <div style={{ flex: 1, paddingBottom: "clamp(56px,8vw,96px)" }}>
-        <HomePricing />
+        <PricingPlansSection />
       </div>
       <SiteFooter />
     </div>

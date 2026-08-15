@@ -7,7 +7,7 @@ const SIZES = {
 };
 
 export default function AppButton({
-  label = "Go to the app",
+  label = "Start with your story",
   size = "md",
   style,
   onClick,

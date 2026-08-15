@@ -52,7 +52,7 @@ export default function TermsPage() {
           These Terms of Service ("Terms") govern your access to and use of the hosted Yoinky application and related services (the "Service") operated by <strong style={S.strong}>Giksn Research</strong> ("we," "us," or "our"). By creating an account or using the Service you agree to be bound by these Terms and our <a href="/privacy" style={{ color: PINK, textDecoration: "none" }}>Privacy Policy</a>, which is incorporated by reference.
         </p>
         <p style={S.p}>
-          If you do not agree to these Terms, do not install or use the Service.
+          If you do not agree to these Terms, do not create an account or use the Service.
         </p>
 
         {/* 1 */}
@@ -97,7 +97,7 @@ export default function TermsPage() {
         <p style={S.p}>You agree to use Yoinky only for lawful purposes and in accordance with these Terms. You must not:</p>
         <ul style={S.ul}>
           <li style={S.li}><strong style={S.strong}>Use knowledge without permission.</strong> You may not capture, upload, monitor, or process another person's confidential material without the rights and consent required by law and by your organisation.</li>
-          <li style={S.li}><strong style={S.strong}>Abuse the hosted Service.</strong> You must not probe, disrupt, or attempt to gain unauthorised access to the hosted Service. This restriction does not limit rights granted under the licence covering Yoinky's open source code.</li>
+          <li style={S.li}><strong style={S.strong}>Abuse the hosted Service.</strong> You must not probe, disrupt, or attempt to gain unauthorised access to the hosted Service.</li>
           <li style={S.li}><strong style={S.strong}>Circumvent security measures.</strong> You must not attempt to bypass, disable, or interfere with security mechanisms, rate limits, or access controls in the Service.</li>
           <li style={S.li}><strong style={S.strong}>Use automated access.</strong> You must not use bots, scrapers, or automated scripts to interact with the Service in ways not expressly permitted or intended.</li>
           <li style={S.li}><strong style={S.strong}>Introduce malicious code.</strong> You must not upload or transmit viruses, malware, or any code intended to damage, disrupt, or gain unauthorised access to systems.</li>
@@ -130,10 +130,9 @@ export default function TermsPage() {
         {/* 8 */}
         <h2 style={S.h2}>8. Intellectual Property</h2>
         <ul style={S.ul}>
-          <li style={S.li}>Yoinky's open source code is available under the licence published with its source repository. Your use, modification, and distribution of that code is governed by that licence.</li>
           <li style={S.li}>These Terms do not grant you any rights to our trademarks, logos, or brand assets. You must not use them without prior written permission.</li>
-          <li style={S.li}>Your source material, structured knowledge, narrative systems, and content remain yours. The open source licence does not grant rights to third-party material, hosted infrastructure, private credentials, or Yoinky trademarks.</li>
-          <li style={S.li}>Hosted-service features, brand assets, and material not included in the public repository remain subject to these Terms and applicable law.</li>
+          <li style={S.li}>Your source material, structured knowledge, narrative systems, and content remain yours. Nothing in these Terms grants rights to third-party material, hosted infrastructure, private credentials, or Yoinky trademarks.</li>
+          <li style={S.li}>Hosted-service features and brand assets remain subject to these Terms and applicable law.</li>
         </ul>
 
         {/* 9 */}

@@ -1,5 +1,6 @@
 import { SERIF, TEXT, TEXT_SOFT, UI } from "./theme";
 import Reveal from "./Reveal";
+import SectionPill from "./SectionPill";
 
 /**
  * Consistent section opener: liquid-glass kicker pill (same shape as the
@@ -30,25 +31,18 @@ export default function SectionHead({
       }}
     >
       <Reveal>
-        <div
-          className="liquid-glass inline-flex items-center rounded-full"
-          style={{ padding: "8px 18px", backgroundColor: "rgba(255,255,255,0.05)" }}
-        >
-          <span style={{ fontFamily: UI, fontSize: 13, color: TEXT_SOFT, letterSpacing: 0.2 }}>
-            {kicker}
-          </span>
-        </div>
+        <SectionPill>{kicker}</SectionPill>
       </Reveal>
       <Reveal delay={90}>
         <h2
           style={{
             fontFamily: SERIF,
-            fontWeight: 400,
+            fontWeight: 300,
             fontSize: "clamp(34px,5vw,58px)",
             lineHeight: 1.08,
-            letterSpacing: "-0.01em",
+            letterSpacing: "0.015em",
             color: TEXT,
-            margin: "clamp(20px,2.6vw,28px) 0 0",
+            margin: "clamp(28px,3vw,36px) 0 0",
           }}
         >
           {title} <em style={{ fontFamily: SERIF, fontStyle: "normal" }}>{accent}</em>
@@ -64,7 +58,7 @@ export default function SectionHead({
               color: TEXT_SOFT,
               margin: centered ? "clamp(16px,2vw,20px) auto 0" : "clamp(16px,2vw,20px) 0 0",
               maxWidth: 560,
-              letterSpacing: 0,
+              letterSpacing: "0.01em",
             }}
           >
             {sub}

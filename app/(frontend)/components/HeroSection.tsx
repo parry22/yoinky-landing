@@ -12,7 +12,7 @@ const NAV_LINKS = [
 ];
 
 // Single static hero: the founders scene. Heading + subtext are fixed.
-const HERO_HEADING = "Automate your founder-led marketing";
+const HERO_HEADING: [string, string] = ["Automate your", "founder-led marketing"];
 const HERO_SUBTEXT =
   "Yoinky turns everything a company knows into content and distribution.";
 const HERO_VIDEO =
@@ -172,7 +172,7 @@ export default function HeroSection() {
         </div>
 
         {/* Hero content, vertically centered in the remaining space */}
-        <div className="flex-1 flex items-center justify-center px-5 sm:px-8">
+        <div className="flex-1 flex items-center justify-center px-5 -translate-y-8 sm:translate-y-0 sm:px-8">
           <div className="flex flex-col items-center text-center" style={{ maxWidth: 860 }}>
 
             {/* Badge */}
@@ -194,12 +194,14 @@ export default function HeroSection() {
                 letterSpacing: "0.015em",
                 color: contentColor,
                 textShadow: textGlow,
-                fontSize: "clamp(40px,11vw,58px)",
+                fontSize: "clamp(30px,9vw,58px)",
                 maxWidth: 780,
                 margin: 0,
               }}
             >
-              {HERO_HEADING}
+              <span className="whitespace-nowrap">{HERO_HEADING[0]}</span>
+              <br />
+              <span className="whitespace-nowrap">{HERO_HEADING[1]}</span>
             </h1>
 
             {/* Subtext */}
@@ -220,7 +222,8 @@ export default function HeroSection() {
 
             {/* CTA is a standalone button, with no input field. */}
             <div style={{ marginTop: "clamp(26px,4vw,36px)" }}>
-              <AppButton size="lg" />
+              <span className="sm:hidden"><AppButton size="md" /></span>
+              <span className="hidden sm:inline"><AppButton size="lg" /></span>
             </div>
           </div>
         </div>

@@ -174,9 +174,9 @@ body {
 .product-learning-art {
   position: absolute;
   z-index: 1;
-  right: 14px;
+  right: clamp(28px, 2.25vw, 42px);
   bottom: 14px;
-  left: 14px;
+  left: clamp(28px, 2.25vw, 42px);
   height: 112px;
   pointer-events: none;
 }
@@ -229,8 +229,6 @@ body {
   display: block;
   width: 100%;
   height: auto;
-  transform: rotate(-3deg);
-  transform-origin: center;
 }
 
 .product-open-source-art {
@@ -355,10 +353,10 @@ body {
   .product-open-source-art { right: auto; bottom: 4px; left: 4px; width: min(38%, 130px); }
   .product-platform-art { right: auto; bottom: -36px; left: -4px; width: min(76%, 230px); }
   .product-work-art { right: auto; bottom: -38px; left: -18px; width: min(104%, 340px); }
-  .product-learning-art { right: 10px; bottom: 10px; left: 10px; height: 82px; }
+  .product-learning-art { right: 26px; bottom: 10px; left: 26px; height: 82px; }
   .product-platform-art__image { transform: translateY(-6px); }
-  .product-integration-ticker { right: 26px; bottom: 8px; width: calc(100% - 52px); gap: 6px; }
-  .product-integration-ticker__line { grid-template-columns: repeat(5, minmax(0, 48px)); gap: 6px; }
+  .product-integration-ticker { right: 26px; bottom: 8px; left: 26px; width: auto; gap: 6px; }
+  .product-integration-ticker__line { grid-template-columns: repeat(5, minmax(0, 1fr)); justify-content: start; gap: 8px; }
 }
 
 /* ── workflow explorer ── */

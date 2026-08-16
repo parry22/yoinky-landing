@@ -12,7 +12,7 @@ const NAV_LINKS = [
 ];
 
 // Single static hero: the founders scene. Heading + subtext are fixed.
-const HERO_HEADING: [string, string] = ["Turn scattered knowledge", "into publish-ready content"];
+const HERO_HEADING = "Automate your founder-led marketing";
 const HERO_SUBTEXT =
   "Yoinky turns everything a company knows into content and distribution.";
 const HERO_VIDEO =
@@ -194,20 +194,12 @@ export default function HeroSection() {
                 letterSpacing: "0.015em",
                 color: contentColor,
                 textShadow: textGlow,
-                // Mobile floor raised from 34px because the headline was reading small on
-                // phones, where it's the whole first impression. Measured against
-                // Instrument Serif (~0.356em/char): the longer forced line "The only
-                // agent you" is ~256px at 40px, which clears the ~280px available on
-                // a 320px phone, so the 40px floor never forces a third line. 11vw
-                // then scales it up through normal phone widths, capping at 58px.
                 fontSize: "clamp(40px,11vw,58px)",
                 maxWidth: 780,
                 margin: 0,
               }}
             >
-              {HERO_HEADING[0]}
-              <br />
-              {HERO_HEADING[1]}
+              {HERO_HEADING}
             </h1>
 
             {/* Subtext */}

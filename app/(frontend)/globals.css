@@ -161,6 +161,92 @@ body {
 .product-bento-card--video { grid-column: span 4; }
 .product-bento-card--small { grid-column: span 2; }
 
+.product-bento-card--image h3,
+.product-bento-card--image p,
+.product-bento-card--work h3,
+.product-bento-card--work p,
+.product-bento-card--learning h3,
+.product-bento-card--learning p {
+  position: relative;
+  z-index: 2;
+}
+
+.product-learning-art {
+  position: absolute;
+  z-index: 1;
+  right: 14px;
+  bottom: 14px;
+  left: 14px;
+  height: 112px;
+  pointer-events: none;
+}
+
+.product-learning-art__svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.product-learning-art__white {
+  stroke: rgba(255, 255, 255, 0.34);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+}
+
+.product-learning-art__area {
+  fill: url(#learning-area);
+}
+
+.product-learning-art__green {
+  stroke: url(#learning-green);
+  stroke-width: 2.2px;
+  stroke-linecap: round;
+  stroke-dasharray: 340;
+  stroke-dashoffset: 340;
+  animation: productLearningDraw 6.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+@keyframes productLearningDraw {
+  0%, 14% { stroke-dashoffset: 340; opacity: 0; }
+  20% { opacity: 1; }
+  58%, 100% { stroke-dashoffset: 0; opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-learning-art__green { animation: none; stroke-dashoffset: 0; }
+}
+
+.product-work-art {
+  position: absolute;
+  right: -42px;
+  bottom: -28px;
+  width: min(108%, 350px);
+  pointer-events: none;
+}
+
+.product-work-art__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: rotate(-3deg);
+  transform-origin: center;
+}
+
+.product-open-source-art {
+  position: absolute;
+  right: 10px;
+  bottom: -10px;
+  width: min(48%, 220px);
+  pointer-events: none;
+}
+
+.product-open-source-art__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .product-bento-card h3 {
   margin: 0;
   font-family: var(--font-delight), 'Delight', sans-serif;
@@ -182,6 +268,79 @@ body {
   color: rgba(255, 255, 255, 0.5);
 }
 
+.product-bento-card--platform {
+  padding-right: clamp(24px, 3vw, 42px);
+}
+
+.product-bento-card--platform p {
+  position: relative;
+  z-index: 2;
+  max-width: 260px;
+  margin-top: 14px;
+  font-size: 16px;
+  line-height: 1.42;
+  white-space: pre-line;
+}
+
+.product-bento-card--platform h3 {
+  position: relative;
+  z-index: 2;
+  max-width: 230px;
+}
+
+.product-platform-art {
+  position: absolute;
+  right: -4px;
+  bottom: -70px;
+  left: auto;
+  width: min(88%, 270px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.product-platform-art__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: translateY(-24px);
+}
+
+.product-integration-ticker {
+  position: absolute;
+  right: clamp(24px, 3vw, 42px);
+  bottom: clamp(14px, 1.6vw, 20px);
+  left: auto;
+  width: min(calc(100% - clamp(48px, 6vw, 84px)), 420px);
+  display: grid;
+  align-content: end;
+  gap: 12px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.product-integration-ticker__line {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 56px));
+  justify-content: end;
+  width: 100%;
+  gap: 12px;
+}
+
+.product-integration-ticker__logo {
+  display: grid;
+  width: 100%;
+  aspect-ratio: 1;
+  place-items: center;
+}
+
+.product-integration-ticker__image {
+  width: 72%;
+  height: 72%;
+  object-fit: contain;
+}
+
+.product-integration-ticker__image--light { filter: brightness(0) invert(1); }
+
 @media (max-width: 760px) {
   .product-bento-section { display: flex; flex-direction: column; align-items: stretch; height: auto; overflow: visible; padding: 72px 24px 80px; }
   .product-bento-heading { margin-bottom: 36px; }
@@ -190,7 +349,16 @@ body {
   .product-bento-card,
   .product-bento-card--image,
   .product-bento-card--video,
-  .product-bento-card--small { grid-column: auto; min-height: 320px; border-radius: 24px; padding: 26px; }
+  .product-bento-card--small { grid-column: auto; min-height: 260px; border-radius: 24px; padding: 26px; }
+  .product-bento-card--platform { padding-right: 16px; }
+  .product-bento-card--platform p { max-width: 260px; font-size: 16px; line-height: 1.42; }
+  .product-open-source-art { right: auto; bottom: 4px; left: 4px; width: min(38%, 130px); }
+  .product-platform-art { right: auto; bottom: -36px; left: -4px; width: min(76%, 230px); }
+  .product-work-art { right: auto; bottom: -38px; left: -18px; width: min(104%, 340px); }
+  .product-learning-art { right: 10px; bottom: 10px; left: 10px; height: 82px; }
+  .product-platform-art__image { transform: translateY(-6px); }
+  .product-integration-ticker { right: 26px; bottom: 8px; width: calc(100% - 52px); gap: 6px; }
+  .product-integration-ticker__line { grid-template-columns: repeat(5, minmax(0, 48px)); gap: 6px; }
 }
 
 /* ── workflow explorer ── */

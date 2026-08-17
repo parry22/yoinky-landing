@@ -9,7 +9,10 @@
 .item button { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 62px; padding: 13px 20px; border: 0; background: transparent; color: #fff; cursor: pointer; font-family: var(--font-delight), 'Delight', sans-serif; font-size: 16px; font-weight: 400; letter-spacing: .01em; text-align: left; }
 .item button svg { flex: 0 0 auto; width: 19px; height: 19px; margin-left: 16px; color: rgba(255,255,255,.9); }
 .answer { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 300ms cubic-bezier(.22,1,.36,1); }
-.answer p { min-height: 0; margin: 0; overflow: hidden; color: rgba(255,255,255,.52); font-family: var(--font-delight), 'Delight', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.4; letter-spacing: .01em; }
+.answerContent { min-height: 0; overflow: hidden; color: rgba(255,255,255,.52); font-family: var(--font-delight), 'Delight', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.4; letter-spacing: .01em; }
+.answerContent p { margin: 0; }
+.answerContent p + p { margin-top: 14px; }
+.answerContent strong { color: rgba(255,255,255,.8); font-weight: 500; }
 .open .answer { grid-template-rows: 1fr; }
-.open .answer p { padding: 0 20px 17px; }
+.open .answerContent { padding: 0 20px 17px; }
 @media (max-width: 720px) { .section { padding: 82px 24px 48px; } .header h2 { font-size: 38px; } .grid { grid-template-columns: 1fr; gap: 12px; margin-top: 40px; } .column { gap: 12px; } .item button { min-height: 60px; font-size: 16px; } }
